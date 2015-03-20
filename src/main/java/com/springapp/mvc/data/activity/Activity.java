@@ -8,25 +8,25 @@ import java.sql.Timestamp;
 public abstract class Activity
 {
     private String name;
-
-    private Location location;
+    private double longitude;
+    private double lattitude;
     private String description;
-    private Contact contact;
 
-    public Activity(String name, Location location)
-    {
-        this.name = name;
-        this.location = location;
+    public Activity(String n, double lo, double la) {
+        name = n;
+        longitude = lo;
+        lattitude = la;
     }
 
-    public void setDescription(String description)
-    {
-        this.description = description;
+    public void setDescription(String d) {
+        description = d;
     }
 
     public abstract Timestamp getStart();
 
     public abstract Timestamp getEnd();
 
-    public abstract Cathegory getCathegory();
+    public String toString() {
+        return this.name;
+    }
 }

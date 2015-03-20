@@ -50,4 +50,10 @@ public class Stay implements Iterable<Map.Entry<Schedule, Activity>> {
     public Iterator<Map.Entry<Schedule, Activity>> iterator() {
         return this.activities.entryList().iterator();
     }
+
+    public String toString()
+    {
+        return "Stay " + this.stayDuration + " : " + this.activities;
+
+    }
 }

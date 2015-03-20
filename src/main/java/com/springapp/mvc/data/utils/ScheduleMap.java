@@ -113,4 +113,15 @@ public class ScheduleMap<T> implements Map<Schedule, T> {
             list.add(new AbstractMap.SimpleEntry<Schedule, T>(this.schedules.get(pos), this.ts.get(pos)));
         return list;
     }
+
+    public String toString()
+    {
+        StringBuilder str = new StringBuilder("{\n");
+        for (Schedule elem : this.keySet())
+        {
+            str.append("   " + elem + " : " + this.get(elem) + "\n");
+        }
+        str.append("}");
+        return str.toString();
+    }
 }

@@ -1,5 +1,8 @@
 <html>
+<head>
+</head>
 <body>
-	<h1>${message}</h1>
+	${list}
+<div id="c"></div>
 </body>
 </html>

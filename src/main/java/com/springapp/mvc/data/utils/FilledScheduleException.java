@@ -20,4 +20,9 @@ public class FilledScheduleException extends RuntimeException {
     public Schedule getOvers() {
         return overs;
     }
+
+    public String toString()
+    {
+        return "what : " + this.what + " ; overs : " + this.overs;
+    }
 }
