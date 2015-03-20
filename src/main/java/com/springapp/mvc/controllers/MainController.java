@@ -12,6 +12,7 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import com.springapp.mvc.data.activity.Location;
 
 /**
  * Created by Nathan on 20/03/2015.
@@ -24,9 +25,10 @@ public class MainController {
     public String index(ModelMap model)
     {
         List<Activity> activities = new ArrayList<Activity>();
-        activities.add(new Visit("Visite d'un truc", 3., 2.));
-        activities.add(new Visit("Visite d'un machin", 2., 3.));
-        activities.add(new Eating("Restaurant", 4., 2., new Timestamp(1891518874L), new Timestamp(1891528874L)));
+        Location loc = new Location(2., 3.);
+        activities.add(new Visit("Visite d'un truc", loc));
+        activities.add(new Visit("Visite d'un machin", loc));
+        activities.add(new Eating("Restaurant", loc, new Timestamp(1891518874L), new Timestamp(1891528874L)));
         model.addAttribute(activities);
         return "index";
     }
