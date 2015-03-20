@@ -7,9 +7,9 @@ import java.sql.Timestamp;
  */
 public class Visit extends Activity
 {
-    public Visit(String name, Location location)
+    public Visit(String name, Location location, Contact mainContact)
     {
-        super(name, location);
+        super(name, location, mainContact);
     }
 
     @Override
@@ -27,9 +27,9 @@ public class Visit extends Activity
     }
 
     @Override
-    public Cathegory getCathegory()
-    {
+    public Category getCategory() {
         //TODO
         return null;
     }
+
 }
