@@ -6,11 +6,13 @@ package com.springapp.mvc.data.activity;
 public class Category {
     private final Long id;
     private final String lib;
+    private final String lang;
 
-    public Category(Long id, String lib)
+    public Category(Long id, String lib, String lang)
     {
         this.id = id;
         this.lib = lib;
+        this.lang = lang;
     }
 
     public String getLib()
@@ -28,5 +30,9 @@ public class Category {
         return this.getLib();
     }
 
+    public String getLang()
+    {
+        return this.lang;
+    }
 
 }
