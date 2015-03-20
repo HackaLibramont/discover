@@ -1,8 +1,6 @@
 package com.springapp.mvc.controllers;
 
-import com.springapp.mvc.data.activity.Activity;
-import com.springapp.mvc.data.activity.Eating;
-import com.springapp.mvc.data.activity.Visit;
+import com.springapp.mvc.data.activity.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,10 +22,12 @@ public class MainController {
     public String index(ModelMap model)
     {
         List<Activity> activities = new ArrayList<Activity>();
-        activities.add(new Visit("Visite d'un truc", 3., 2.));
-        activities.add(new Visit("Visite d'un machin", 2., 3.));
-        activities.add(new Eating("Restaurant", 4., 2., new Timestamp(1891518874L), new Timestamp(1891528874L)));
-        model.addAttribute(activities);
+        Location loc = new Location(2., 3.);
+        Contact contact = new Contact();
+        activities.add(new Visit("Visite d'un truc", loc, contact));
+        activities.add(new Visit("Visite d'un machin", loc, contact));
+        activities.add(new Eating("Restaurant", loc, contact, new Timestamp(1891518874L), new Timestamp(1891528874L)));
+        model.addAttribute("activities", activities);
         return "index";
     }
 }

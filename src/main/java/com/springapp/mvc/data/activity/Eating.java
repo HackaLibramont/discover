@@ -10,9 +10,9 @@ public class Eating extends Activity
     private Timestamp start;
     private Timestamp end;
 
-    public Eating(String name, Location location, Timestamp start, Timestamp end)
+    public Eating(String name, Location location, Contact mainContact, Timestamp start, Timestamp end)
     {
-        super(name, location);
+        super(name, location, mainContact);
         this.start = start;
         this.end = end;
     }
@@ -28,9 +28,9 @@ public class Eating extends Activity
     }
 
     @Override
-    public Cathegory getCathegory()
-    {
+    public Category getCategory() {
         //TODO
         return null;
     }
+
 }
