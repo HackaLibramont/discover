@@ -7,30 +7,23 @@ import java.sql.Timestamp;
  */
 public class Accomodation extends Activity
 {
-    private Timestamp start;
-    private Timestamp end;
-
-    public Accomodation(String name, Location location, Timestamp start, Timestamp end)
+    public Accomodation(String name, Location location, Contact mainContact)
     {
-        super(name, location);
-        this.start = start;
-        this.end = end;
+        super(name, location, mainContact);
     }
 
     public Timestamp getStart()
     {
-        return start;
+        return Timestamp.valueOf("1970-01-01 00:00:00");
     }
 
     public Timestamp getEnd()
     {
-        return end;
+        return Timestamp.valueOf("3000-01-01 23:59:59");
     }
 
     @Override
-    public Cathegory getCathegory()
-    {
-        //TODO
+    public Category getCategory() {
         return null;
     }
 }

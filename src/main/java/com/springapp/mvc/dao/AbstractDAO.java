@@ -24,10 +24,9 @@ public abstract class AbstractDAO<T> {
                     return l;
             return EN;
         }
-    };
+    }
 
-
-    private static String databaseName = "discover";
+    private final static String DATABASE_NAME = "discover";
 
     public abstract List<T> findAll();
 
@@ -45,7 +44,7 @@ public abstract class AbstractDAO<T> {
     {
         if(connection == null)
             try {
-                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + databaseName, "root", "");
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + DATABASE_NAME, "root", "");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
