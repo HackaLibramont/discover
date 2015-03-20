@@ -16,7 +16,7 @@ public abstract class AbstractDAO<T> {
             return this.name().toLowerCase();
         }
 
-        public LANG find (String name)
+        public static LANG find (String name)
         {
             for (LANG l : LANG.values())
             if (name != null)
