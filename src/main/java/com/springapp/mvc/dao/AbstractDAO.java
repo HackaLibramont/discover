@@ -9,11 +9,31 @@ public abstract class AbstractDAO<T> {
 
     private static Connection connection;
 
+    public static enum LANG {FR, EN, NL;
+
+        public String getDbName()
+        {
+            return this.name().toLowerCase();
+        }
+
+        public LANG find (String name)
+        {
+            for (LANG l : LANG.values())
+            if (name != null)
+                if (l.name().toUpperCase().equals(name.toUpperCase()))
+                    return l;
+            return EN;
+        }
+    };
+
+
     private static String databaseName = "discover";
 
     public abstract List<T> findAll();
 
     public abstract T find(Long id);
+
+    public abstract T find(Long id, LANG lang);
 
     public abstract void insert (T t);
 
