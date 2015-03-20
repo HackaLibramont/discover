@@ -27,7 +27,7 @@ public class MainController {
         activities.add(new Visit("Visite d'un truc", loc, contact));
         activities.add(new Visit("Visite d'un machin", loc, contact));
         activities.add(new Eating("Restaurant", loc, contact, new Timestamp(1891518874L), new Timestamp(1891528874L)));
-        model.addAttribute(activities);
+        model.addAttribute("activities", activities);
         return "index";
     }
 }
