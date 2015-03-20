@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContactDAO extends AbstractDAO<Contact> {
+public class ContactDAO extends AbstractDAO<Contact, Long> {
     @Override
     public List<Contact> findAll() {
         ArrayList<Contact> contacts = new ArrayList<Contact>();
@@ -36,6 +36,11 @@ public class ContactDAO extends AbstractDAO<Contact> {
     }
 
     @Override
+    public List<Contact> findAll(LANG lang) {
+        return null;
+    }
+
+    @Override
     public Contact find(Long id) {
         Contact contact = null;
         PreparedStatement preparedStatement = null;
@@ -58,6 +63,11 @@ public class ContactDAO extends AbstractDAO<Contact> {
 
         }
         return contact;
+    }
+
+    @Override
+    public Contact find(Long id, LANG lang) {
+        return null;
     }
 
     @Override

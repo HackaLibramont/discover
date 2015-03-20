@@ -46,6 +46,11 @@ public class CategoryNameDAO extends AbstractDAO<CategoryName, String> {
     }
 
     @Override
+    public List<CategoryName> findAll(LANG lang) {
+        return null;
+    }
+
+    @Override
     public CategoryName find(String id) {
         CategoryName result = null;
         StringBuilder sql = new StringBuilder();

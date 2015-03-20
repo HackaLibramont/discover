@@ -11,9 +11,13 @@ public class Contact
     private String number;
     private String address;
 
+    public Contact(){
+        this.id = -1;
+    }
+
     public Contact(String firstName, String lastName)
     {
-        this.id = -1;
+        this();
         this.firstName = firstName;
         this.lastName = lastName;
     }
