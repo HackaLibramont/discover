@@ -25,8 +25,8 @@ public class MainController {
     {
         List<Activity> activities = new ArrayList<Activity>();
         activities.add(new Visit("Visite d'un truc", 3., 2.));
-        activities.add(new Visit("Visite d'un machin"; 2., 3.));
-        activities.add(new Eating("Restaurant", 4., 2., new Timestamp(1891518874L), new Timestamp(1891528874L));
+        activities.add(new Visit("Visite d'un machin", 2., 3.));
+        activities.add(new Eating("Restaurant", 4., 2., new Timestamp(1891518874L), new Timestamp(1891528874L)));
         model.addAttribute(activities);
         return "index";
     }

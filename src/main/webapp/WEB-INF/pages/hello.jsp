@@ -1,5 +1,18 @@
 <html>
+<head>
+    <link href="....js">
+</head>
 <body>
-	${stay.toString().replaceAll("\\n", "<br/>")}
+    <input type="button" onclick="loadActivites()"/>
+	${list}
+<div id="c"></div>
 </body>
 </html>
+
+<script>
+    function loadActivites()
+    {
+        $.ajax(url =...).done(function(html) {$("#c").html(html);})
+    }
+
+</script>
