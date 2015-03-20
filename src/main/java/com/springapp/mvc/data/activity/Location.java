@@ -5,23 +5,33 @@ package com.springapp.mvc.data.activity;
  */
 public class Location
 {
+    private long id;
     private String name;
+    private String postcode;
     private double longitude;
     private double lattitude;
     private String com_name;
 
-    public Location(double longitude, double lattitude)
+    public Location(long id, double longitude, double lattitude)
     {
+        this.id = id;
         this.longitude = longitude;
         this.lattitude = lattitude;
     }
 
-    public Location(String name, double longitude, double lattitude, String com_name)
+    public Location(long id, String name, String postcode, double longitude, double lattitude, String com_name)
     {
+        this.id = id;
         this.name = name;
+        this.postcode = postcode;
         this.longitude = longitude;
         this.lattitude = lattitude;
         this.com_name = com_name;
+    }
+
+    public void setPostcode(String postcode)
+    {
+        this.postcode = postcode;
     }
 
     public void setName(String name)
@@ -32,5 +42,35 @@ public class Location
     public void setCom_name(String com_name)
     {
         this.com_name = com_name;
+    }
+
+    public long getId()
+    {
+        return id;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public String getPostcode()
+    {
+        return postcode;
+    }
+
+    public double getLongitude()
+    {
+        return longitude;
+    }
+
+    public double getLattitude()
+    {
+        return lattitude;
+    }
+
+    public String getCom_name()
+    {
+        return com_name;
     }
 }
