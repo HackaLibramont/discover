@@ -43,5 +43,6 @@
     <div id="map-canvas"></div>
     </body>
     </html>
+	${stay.toString().replaceAll("\\n", "<br/>")}
 </body>
 </html>
