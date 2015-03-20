@@ -1,6 +1,6 @@
 <html>
 <head>
-    <script src="Javascript/lists.js"/>
+    <!--<script src="Javascript/lists.js"/>-->
 </head>
 <body>
     <button onclick="testGet()">Click me</button>

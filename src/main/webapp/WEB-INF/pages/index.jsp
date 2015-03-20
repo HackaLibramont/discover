@@ -15,8 +15,8 @@
 <body>
 
     <ul id="listActivity">
-        <c:forEach var = "activity" items="${list}">
-                <li>${activity.toString()}</li>
+        <c:forEach var = "item" items="${activities}">
+                <li>${item.toString()}</li>
         </c:forEach>
     </ul>
 </body>
