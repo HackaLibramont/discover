@@ -11,33 +11,40 @@ import java.util.List;
 /**
  * Created by Nathan on 20/03/2015.
  */
-public class CategoryDAO extends AbstractDAO<Category, Long>{
+public class CategoryDAO extends AbstractDAO<Category, Long>
+{
 
     @Override
-    public List<Category> findAll() {
+    public List<Category> findAll()
+    {
         List<Category> result = new ArrayList<Category>();
         StringBuilder sql = new StringBuilder();
         sql.append("select * from category");
-        try {
+        try
+        {
             PreparedStatement statement = AbstractDAO.connection().prepareStatement(sql.toString());
             ResultSet res = statement.executeQuery();
             while (res.next())
             {
                 result.add(new Category(res.getLong("id"), res.getString("name"), res.getString("lang")));
             }
-        } catch (SQLException e) {
+        } catch (SQLException e)
+        {
             e.printStackTrace();
-            try {
+            try
+            {
                 connection().rollback();
-            } catch (SQLException e1) {
+            } catch (SQLException e1)
+            {
                 e1.printStackTrace();
             }
-        }
-        finally
+        } finally
         {
-            try {
+            try
+            {
                 connection().close();
-            } catch (SQLException e) {
+            } catch (SQLException e)
+            {
                 e.printStackTrace();
             }
         }
@@ -45,21 +52,25 @@ public class CategoryDAO extends AbstractDAO<Category, Long>{
     }
 
     @Override
-    public List<Category> findAll(LANG lang) {
+    public List<Category> findAll(LANG lang)
+    {
         return null;
     }
 
     @Override
-    public Category find(Long id) {
+    public Category find(Long id)
+    {
         return find(id, LANG.find(null));
     }
 
     @Override
-    public Category find(Long id, LANG lang) {
+    public Category find(Long id, LANG lang)
+    {
         Category result = null;
         StringBuilder sql = new StringBuilder();
         sql.append("select * from " + ".category where id = ? and lang = ?");
-        try {
+        try
+        {
             PreparedStatement statement = AbstractDAO.connection().prepareStatement(sql.toString());
             statement.setLong(1, id);
             statement.setString(2, lang.getDbName());
@@ -68,19 +79,23 @@ public class CategoryDAO extends AbstractDAO<Category, Long>{
             {
                 result = new Category(res.getLong("id"), res.getString("name"), res.getString("lang"));
             }
-        } catch (SQLException e) {
+        } catch (SQLException e)
+        {
             e.printStackTrace();
-            try {
+            try
+            {
                 connection().rollback();
-            } catch (SQLException e1) {
+            } catch (SQLException e1)
+            {
                 e1.printStackTrace();
             }
-        }
-        finally
+        } finally
         {
-            try {
+            try
+            {
                 connection().close();
-            } catch (SQLException e) {
+            } catch (SQLException e)
+            {
                 e.printStackTrace();
             }
         }
@@ -88,61 +103,74 @@ public class CategoryDAO extends AbstractDAO<Category, Long>{
     }
 
     @Override
-    public void insert(Category category) {
+    public void insert(Category category)
+    {
         StringBuilder sql = new StringBuilder();
         sql.append("insert into category values(?, ?, ?)");
-        try {
+        try
+        {
             PreparedStatement statement = AbstractDAO.connection().prepareStatement(sql.toString());
             statement.setLong(1, category.getId());
             statement.setString(2, category.getLib());
-            statement.setString(2, category.getLang());
+            statement.setString(3, category.getLang());
             statement.executeUpdate();
-        } catch (SQLException e) {
+        } catch (SQLException e)
+        {
             e.printStackTrace();
-            try {
+            try
+            {
                 connection().rollback();
-            } catch (SQLException e1) {
+            } catch (SQLException e1)
+            {
                 e1.printStackTrace();
             }
-        }
-        finally
+        } finally
         {
-            try {
+            try
+            {
                 connection().close();
-            } catch (SQLException e) {
+            } catch (SQLException e)
+            {
                 e.printStackTrace();
             }
         }
     }
 
     @Override
-    public void update(Category category) {
+    public void update(Category category)
+    {
         StringBuilder sql = new StringBuilder();
         sql.append("update category set lib = ?");
-        try {
+        try
+        {
             PreparedStatement statement = AbstractDAO.connection().prepareStatement(sql.toString());
             statement.setString(1, category.getLib());
             statement.executeUpdate();
-        } catch (SQLException e) {
+        } catch (SQLException e)
+        {
             e.printStackTrace();
-            try {
+            try
+            {
                 connection().rollback();
-            } catch (SQLException e1) {
+            } catch (SQLException e1)
+            {
                 e1.printStackTrace();
             }
-        }
-        finally
+        } finally
         {
-            try {
+            try
+            {
                 connection().close();
-            } catch (SQLException e) {
+            } catch (SQLException e)
+            {
                 e.printStackTrace();
             }
         }
     }
 
     @Override
-    public Category delete(Long id) {
+    public Category delete(Long id)
+    {
         return null;
     }
 }
