@@ -1,8 +1,8 @@
 <html>
 <head>
+    <script src="Javascript/lists.js"/>
 </head>
 <body>
-	${list}
-<div id="c"></div>
+    <button onclick="testGet()">Click me</button>
 </body>
 </html>
