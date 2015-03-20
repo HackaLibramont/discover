@@ -1,5 +1,5 @@
 <html>
 <body>
-	<h1>${message}</h1>
+	${stay.toString().replaceAll("\\n", "<br/>")}
 </body>
 </html>

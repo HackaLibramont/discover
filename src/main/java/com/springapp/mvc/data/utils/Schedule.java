@@ -42,7 +42,7 @@ public class Schedule implements Comparable<Object> {
     public int compareTo(Object o) {
         if (Schedule.class.isAssignableFrom(o.getClass())) {
             Schedule other = (Schedule) o;
-            if (this.start().before(this.start())) {
+            if (this.start().before(other.start())) {
                 if (this.end().before(other.start()))
                     return Schedule.BEFORE;
                 else if (this.end().equals(other.start()))
@@ -85,6 +85,11 @@ public class Schedule implements Comparable<Object> {
             } else
                 return AFTER;
         } else return -99;
+    }
+
+    public String toString()
+    {
+        return this.start + " - " + this.end;
     }
 
 
