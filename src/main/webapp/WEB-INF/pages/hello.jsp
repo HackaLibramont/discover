@@ -1,5 +1,8 @@
 <html>
+<head>
+</head>
 <body>
-	${stay.toString().replaceAll("\\n", "<br/>")}
+	${list}
+<div id="c"></div>
 </body>
 </html>
