@@ -30,6 +30,8 @@ public abstract class AbstractDAO<T, ID_TYPE> {
 
     public abstract List<T> findAll();
 
+    public abstract List<T> findAll(LANG lang);
+
     public abstract T find(ID_TYPE id);
 
     public abstract T find(ID_TYPE id, LANG lang);
