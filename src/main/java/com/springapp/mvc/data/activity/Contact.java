@@ -1,57 +1,98 @@
 package com.springapp.mvc.data.activity;
 
-/**
- * Created by Nicolas on 20/03/2015 at 21:31.
- */
 public class Contact
 {
+    private long id;
     private String firstName;
     private String lastName;
     private String phone;
     private String website;
     private String email;
-
-    public Contact()
-    {
-    }
+    private String number;
+    private String address;
 
     public Contact(String firstName, String lastName)
     {
+        this.id = -1;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public Contact(String firstName, String lastName, String phone, String website, String email)
+    public Contact(String firstName, String lastName, String phone, String website, String email, String number, String address)
     {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this(firstName, lastName);
         this.phone = phone;
         this.website = website;
         this.email = email;
     }
 
-    public void setFirstName(String firstName)
-    {
+    public Contact(long id, String firstName, String lastName, String phone, String website, String email, String number, String address){
+        this(firstName, lastName, phone, website, email, number, address);
+        this.id = id;
+
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public void setLastName(String lastName)
-    {
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    public void setPhone(String phone)
-    {
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public void setWebsite(String website)
-    {
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
         this.website = website;
     }
 
-    public void setEmail(String email)
-    {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
