@@ -26,6 +26,7 @@ public abstract class Activity
 
     public abstract Timestamp getEnd();
 
+
     public String toString() {
         return this.name;
     }
