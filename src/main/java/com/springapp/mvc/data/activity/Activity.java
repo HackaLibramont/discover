@@ -5,7 +5,8 @@ import java.sql.Timestamp;
 /**
  * Created by Nathan on 20/03/2015.
  */
-public abstract class Activity {
+public abstract class Activity
+{
     private String name;
     private double longitude;
     private double lattitude;

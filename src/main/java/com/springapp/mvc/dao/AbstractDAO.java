@@ -3,10 +3,15 @@ package com.springapp.mvc.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 
 public abstract class AbstractDAO<T> {
 
     private static Connection connection;
+
+    private static String databaseName = "discover";
+
+    public abstract List<T> findAll();
 
     public abstract T find(Long id);
 
@@ -20,7 +25,7 @@ public abstract class AbstractDAO<T> {
     {
         if(connection == null)
             try {
-                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/discover", "root", "");
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + databaseName, "root", "");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
