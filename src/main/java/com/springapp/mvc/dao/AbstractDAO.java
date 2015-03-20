@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 
-public abstract class AbstractDAO<T> {
+public abstract class AbstractDAO<T, ID_TYPE> {
 
     private static Connection connection;
 
@@ -30,15 +30,15 @@ public abstract class AbstractDAO<T> {
 
     public abstract List<T> findAll();
 
-    public abstract T find(Long id);
+    public abstract T find(ID_TYPE id);
 
-    public abstract T find(Long id, LANG lang);
+    public abstract T find(ID_TYPE id, LANG lang);
 
     public abstract void insert (T t);
 
     public abstract void update (T t);
 
-    public abstract T delete (Long id);
+    public abstract T delete (ID_TYPE id);
 
     public static Connection connection()
     {
