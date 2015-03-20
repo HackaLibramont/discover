@@ -3,5 +3,7 @@ package com.springapp.mvc.data.activity;
 /**
  * Created by Nathan on 20/03/2015.
  */
-public class Visit {
+public class Visit extends Activity
+{
+
 }
