@@ -27,7 +27,7 @@ public class Eating extends Activity
         return end;
     }
 
-    @Override
+
     public Cathegory getCathegory()
     {
         //TODO

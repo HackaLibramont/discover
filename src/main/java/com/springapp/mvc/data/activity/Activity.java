@@ -8,14 +8,12 @@ import java.sql.Timestamp;
 public abstract class Activity
 {
     private String name;
-    private double longitude;
-    private double lattitude;
+    private Location location;
     private String description;
 
-    public Activity(String n, double lo, double la) {
+    public Activity(String n, Location lo) {
         name = n;
-        longitude = lo;
-        lattitude = la;
+       location = lo;
     }
 
     public void setDescription(String d) {

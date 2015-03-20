@@ -26,7 +26,7 @@ public class Visit extends Activity
         return null;
     }
 
-    @Override
+
     public Cathegory getCathegory()
     {
         //TODO
