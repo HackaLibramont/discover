@@ -16,5 +16,8 @@
                 <li>${activity.toString()}</li>
         </c:forEach>
     </ul>
+    <script>
+
+    </script>
 </body>
 </html>
