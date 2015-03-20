@@ -1,14 +1,12 @@
 package com.springapp.mvc.dao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
-/**
- * Created by Nathan on 20/03/2015.
- */
 public abstract class AbstractDAO<T> {
 
-    //TODO
-    private final static Connection connection = null;
+    private static Connection connection;
 
     public abstract T find(Long id);
 
@@ -20,6 +18,12 @@ public abstract class AbstractDAO<T> {
 
     public static Connection connection()
     {
+        if(connection == null)
+            try {
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/discover", "root", "");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         return connection;
     }
 }

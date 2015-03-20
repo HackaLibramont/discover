@@ -7,9 +7,9 @@ import java.sql.Timestamp;
  */
 public class Visit extends Activity
 {
-    public Visit(String name, double longitude, double lattitude)
+    public Visit(String name, Location location)
     {
-        super(name, longitude, lattitude);
+        super(name, location);
     }
 
     @Override
@@ -21,6 +21,13 @@ public class Visit extends Activity
 
     @Override
     public Timestamp getEnd()
+    {
+        //TODO
+        return null;
+    }
+
+    @Override
+    public Cathegory getCathegory()
     {
         //TODO
         return null;
