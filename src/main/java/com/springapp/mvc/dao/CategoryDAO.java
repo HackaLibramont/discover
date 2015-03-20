@@ -45,6 +45,11 @@ public class CategoryDAO extends AbstractDAO<Category, Long>{
     }
 
     @Override
+    public List<Category> findAll(LANG lang) {
+        return null;
+    }
+
+    @Override
     public Category find(Long id) {
         return find(id, LANG.find(null));
     }
