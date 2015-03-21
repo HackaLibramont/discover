@@ -54,7 +54,7 @@
                                 <input type="text" class="inputMenu" name="userMail">
                                 <p class="labels">Mot de passe</p>
                                 <input type="password" class="inputMenu" name="userPassword">
-                                <div id="connexion">
+                                <div class="menu-box">
                                     <a href="">
                                     <img src="<c:url value="/resources/img/start.png"/>" alt="Se connecter" class="submitButton">
                                     </a>
@@ -66,14 +66,13 @@
                                 <img src="<c:url value="/resources/img/position.png"/>" class="positionImage">
                                 <p class="labels">Départ</p>
                                 <input type="text" class="inputMenu" name="userPosition">
-                                    <span>
-                                        <span class="hoursLetter">Durée : </span>
-                                        <input type="text" class="inputMenu inputHours" name="userHours" width="30px">
-                                        <img src="<c:url value="/resources/img/time.png"/>" class="hoursImage">
-                                    </span>
+                                <p class="labels">Rayon</p>
+                                <input type="text" class="inputMenu" name="userPosition">
+                                <div class="menu-box">
+
                                 <a href="">
                                     <img src="<c:url value="/resources/img/start.png"/>" alt="Voir les poins d'interêt" class="submitButton">
-                                </a>
+                                </a></div>
 
 
                             </div>
@@ -81,23 +80,34 @@
                                 <img src="<c:url value="/resources/img/position.png"/>" class="positionImage">
                                 <p class="labels">Départ</p>
                                 <input type="text" class="inputMenu" name="userPosition">
-                                <img src="<c:url value="/resources/img/position.png"/>" class="positionImage">
+                                <p class="labels">Rayon</p>
+                                <input type="text" class="inputMenu" name="userPosition">
+                                <div class="menu-box">
 
-
-                        <span>
-                            <p class="labels">Durée : </p>
-                            <input type="text" class="inputMenu inputHours" name="userHours" width="30px">
-                            <img src="<c:url value="/resources/img/time.png"/>" class="hoursImage">
-                        </span>
-                                <a href="">
-                                    <img src="<c:url value="/resources/img/start.png"/>" alt="Voir l'itinéraire" class="submitButton">
-                                </a>
+                                    <a href="">
+                                        <img src="<c:url value="/resources/img/start.png"/>" alt="Voir les poins d'interêt" class="submitButton">
+                                    </a></div>
 
                             </div>
 
                         </div><!-- /tab-content -->
                     </div><!-- /tabbable -->
             </div><!-- /row -->
+                <div id="language">
+                    <ul>
+                        <li><img src="<c:url value="/resources/img/francais.png"/>" alt="Français" class="submitButton"></li>
+                        <li><img src="<c:url value="/resources/img/anglais.png"/>" alt="Anglais" class="submitButton"></li>
+                        <li><img src="<c:url value="/resources/img/allemand.png"/>" alt="Allemand" class="submitButton"></li>
+                        <li><img src="<c:url value="/resources/img/neerlandais.png"/>" alt="Néerlandais" class="submitButton"></li>
+                    </ul>
+                </div>
+                <div id="icone_partage">
+                    <ul>
+                    <li><img src="<c:url value="/resources/img/twitter.png" />" alt="Twitter" class="image_language"></li>
+                    <li><img src="<c:url value="/resources/img/facebook.png"/>" alt="Facebook" class="image_language"></li>
+                    <li><img src="<c:url value="/resources/img/gplus.png"/>" alt="Google plus" class="image_language"></li>
+                    </ul>
+                </div>
         </div><!-- /container -->
     </div>
 
