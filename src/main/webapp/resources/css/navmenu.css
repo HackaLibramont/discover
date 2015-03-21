@@ -44,3 +44,171 @@ body {
         display: none !important; /* IE8 fix */
     }
 }
+
+
+
+
+
+h3 {
+    margin-top: 0;
+}
+
+.badge {
+    background-color: #777;
+}
+
+.tabs-left { margin-top: 3rem; }
+
+.nav-tabs{
+    display: inherit;
+    float: left;
+    border-bottom: 0;
+    width: 45px;
+
+li {
+    float: none;
+    margin: 0;
+
+    a {
+
+        margin-right: 0;
+        border: 0;
+        background-color: #888;
+
+        &:hover {
+             background-color: #999;
+         }
+    }
+}
+
+.glyphicon {
+    color: #412;
+}
+
+.active .glyphicon {
+    color: #657;
+}
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    border:0;
+}
+
+.tab-content {
+    margin-left: 65px;
+    width: 200px;
+
+    .tab-pane {
+        display: none;
+        background-color: #fff;
+        padding: 1.6rem;
+        overflow-y: auto;
+    }
+
+    .active { display: block; }
+}
+
+.list-group {
+    width: 100%;
+    .list-group-item {
+        height: 50px;
+
+        h4, span {
+            line-height: 11px;
+        }
+    }
+}
+
+.smallLogo{
+    width: 50px;
+}
+.bigLogo{
+
+}
+.navbar-brand {
+    display: inherit;
+    float: left;
+    height: 50px;
+    padding: 0px 0px;
+    font-size: 18px;
+    line-height: 20px;
+    margin-left: 47%;
+}
+.navmenu-brand {
+    display: inherit;
+    font-size: 18px;
+    margin-left: 16px;
+}
+.smallerLogo{
+    width: 35px;
+}
+
+.homeContent{
+    background-color: #00A99B;
+    min-height: 200px;
+
+}
+
+.connectionContent{
+    background-color: #4CAF50;
+    min-height: 200px;
+}
+
+.alentoursContent{
+    background-color: #FFC107;
+    min-height: 200px;
+
+}
+.itineraireContent{
+    background-color: #871C1C;
+    min-height: 200px;
+}
+.textContent{
+    color: white;
+    padding-left: 10px;
+}
+.linkContent{
+    text-decoration: none;
+    text-align: center;
+    font-size: 22px;
+    width: 100%;
+    display: block;
+    line-height: 50px;
+}
+
+.inputMenu{
+    color: black;
+}
+.submitButton{
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.subscriptionButton{
+    font-size: 22px;
+    margin-top: 35px;
+
+}
+.connectionLabels{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.positionImage{
+    float: right;
+    width: 35px;
+}
+.inputHours{
+    margin-top: 10px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+.hoursImage{
+    width: 40px;
+    margin-top: 10px;
+    display: inline-block;
+    float: right;
+}
+.hoursLetter{
+    font-size: 25px;
+}
