@@ -55,19 +55,37 @@
                             </div>
 
                             <div class="tab-pane textContent alentoursContent" id="c">
-                                <img src="<c:url value="/resources/img/position.png"/>" class="positionImage">
-                                <p class="labels">Départ</p>
-                                <input type="text" class="inputMenu" name="userLongitude" id="userLongitude1">
-                                <input type="text" class="inputMenu" name="userLatitude" id="userLatitude1">
-                                    <span>
-                                        <span class="hoursLetter">Distance : </span>
-                                        <input type="text" class="inputMenu inputHours" name="userDistance" id="userDistance1" width="30px">
-                                    </span>
-                                <div class="menu-box">
-                                    <a href="#">
-                                        <img src="<c:url value="/resources/img/start.png"/>" alt="Voir les poins d'interêt" class="submitButton" onclick="findActivitiesAround(event)">
-                                    </a>
-                                </div>
+                                <table style="width:95%; color:white;">
+                                    <tr>
+                                        <td colspan='3'>Départ</td>
+                                        <td><img  style='width:32px;' src="<c:url value="/resources/img/position.png"/>"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan='3' style="text-align:right;"><input style="height:30px;" type="text" class="inputMenu" name="userLongitude" id="userLongitude1"></td>
+                                        <td/>
+                                    </tr>
+                                    <tr>
+                                        <td colspan='3' style="text-align:right;"><input style="height:30px;" type="text" class="inputMenu" name="userLatitude" id="userLatitude1"></td>
+                                        <td/>
+                                    </tr>
+                                    <tr style="padding-top:5px;">
+                                        <td colspan='2'>Distance</td>
+                                        <td style="text-align:right;"><input style="height:30px; width:56px;" type="text" class="inputMenu" name="userDistance" id="userDistance"></td>
+                                        <td style="text-align:center;">m</td>
+                                    </tr>
+                                    <tr>
+                                        <td title="Hébergement"><input type="checkbox" name="" value="1"/><img style='width:32px;' src="<c:url value="/resources/img/activities_hotel_blanc.png"/>"/></td>
+                                        <td title="Lieu"><input type="checkbox" name="" value="2"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_lieu_blanc.png"/>"/></td>
+                                        <td title="Loisir"><input type="checkbox" name="" value="3"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_loisir_blanc.png"/>"/></td>
+                                        <td title="Sport"><input type="checkbox" name="" value="4"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_sport_blanc.png"/>"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td title="Patrimoine"><input type="checkbox" name="" value="5"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_musee_blanc.png"/>"/></td>
+                                        <td title="Production"><input type="checkbox" name="" value="6"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_restaurant_blanc.png"/>"/></td>
+                                        <td title="Evénement"><input type="checkbox" name="" value="7"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_event_blanc.png"/>"/></td>
+                                        <td title="Trouver des activités"><img style='width:32px; cursor:pointer;' src="<c:url value="/resources/img/activities_start.png"/>" alt="Voir les poins d'interêt" class="submitButton" onclick="findActivitiesAround(event)"></td>
+                                    </tr>
+                                </table>
                             </div>
                             <div class="tab-pane textContent itineraireContent" id="d">
                                 <img src="<c:url value="/resources/img/position.png"/>" class="positionImage">
