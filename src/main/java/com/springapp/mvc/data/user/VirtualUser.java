@@ -1,12 +1,13 @@
 package com.springapp.mvc.data.user;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
 
 /**
  * Created by Nathan on 20/03/2015.
  */
-public class VirtualUser {
+public class VirtualUser  implements Serializable {
     private final String name;
     private final String firstName;
     private final Timestamp birthday;

@@ -3,6 +3,7 @@ package com.springapp.mvc.data.activity;
 import com.springapp.mvc.data.utils.Schedule;
 import com.springapp.mvc.data.utils.ScheduleMap;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Iterator;
 import java.util.Map;
@@ -10,15 +11,27 @@ import java.util.Map;
 /**
  * Created by Nathan on 20/03/2015.
  */
-public class Stay implements Iterable<Map.Entry<Schedule, Activity>> {
+public class Stay implements Iterable<Map.Entry<Schedule, Activity>>, Serializable {
 
+    private final Long id;
     private ScheduleMap<Activity> activities;
     private Schedule stayDuration;
 
     public Stay (Schedule stayDuration)
     {
+        this(null, stayDuration);
+    }
+
+    public Stay (Long id, Schedule stayDuration)
+    {
+        this.id = id;
         this.activities = new ScheduleMap<Activity>();
         this.stayDuration = stayDuration;
+    }
+
+    public Stay(Long id, Timestamp start, Timestamp end)
+    {
+        this (id, new Schedule(start, end));
     }
 
     public Stay(Timestamp start, Timestamp end)
@@ -55,5 +68,9 @@ public class Stay implements Iterable<Map.Entry<Schedule, Activity>> {
     {
         return "Stay " + this.stayDuration + " : " + this.activities;
 
+    }
+
+    public Long getId() {
+        return id;
     }
 }

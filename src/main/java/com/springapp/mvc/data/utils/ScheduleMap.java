@@ -1,11 +1,12 @@
 package com.springapp.mvc.data.utils;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * Created by Nathan on 20/03/2015.
  */
-public class ScheduleMap<T> implements Map<Schedule, T> {
+public class ScheduleMap<T extends Serializable> implements Map<Schedule, T>, Serializable {
 
     private final List<Schedule> schedules;
     private final List<T> ts;

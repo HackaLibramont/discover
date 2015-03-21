@@ -1,5 +1,6 @@
 package com.springapp.mvc.data.user;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 /**
  * Created by Nathan on 20/03/2015.
  */
-public class Group implements Iterable<VirtualUser>
+public class Group implements Iterable<VirtualUser>, Serializable
 {
 
     private final List<VirtualUser> users;
