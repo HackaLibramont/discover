@@ -29,9 +29,10 @@ function findActivitiesAround(e)
     var dist = $("#userDistance1").val()*1000;
 
     $.ajax({
-        url: "/entries",
+        url: "/activities",
         dataType: "json",
         method: "POST",
+        contentType: "application/json; charset=utf-8",
         data : {latitude:lat, longitude:long, maxTravelDistance:dist}
     }).done(function( data ){
             console.log( "Sample of data:", data.slice( 0, 100 ) );
