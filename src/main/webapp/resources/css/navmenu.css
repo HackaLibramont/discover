@@ -1,14 +1,19 @@
-html, body {
-    height: 100%;
-}
 body {
-    padding: 50px 0 0 0;
+    background:#FFFFFF;
+    margin: 0;
+    padding: 0;
+    font-family: proxima-nova,"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 0.875em;
+    color: #000;
+    line-height: 1.4;
 }
+
 
 .navmenu {
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
+/* bouton menu*/
 .navbar {
     display: block;
     text-align: center;
@@ -32,7 +37,7 @@ body {
         display: block !important;
     }
 }
-
+/* Responsive */
 @media (min-width: 992px) {
     body {
         padding: 0 0 0 300px;
@@ -43,14 +48,6 @@ body {
     .navbar {
         display: none !important; /* IE8 fix */
     }
-}
-
-
-
-
-
-h3 {
-    margin-top: 0;
 }
 
 .badge {
@@ -74,10 +71,6 @@ li {
         margin-right: 0;
         border: 0;
         background-color: #888;
-
-        &:hover {
-             background-color: #999;
-         }
     }
 }
 
@@ -92,11 +85,12 @@ li {
 
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
     border:0;
+    background:#009245;
 }
 
 .tab-content {
     margin-left: 65px;
-    width: 200px;
+    width: 100%;
 
     .tab-pane {
         display: none;
@@ -146,69 +140,90 @@ li {
 .homeContent{
     background-color: #00A99B;
     min-height: 200px;
+    width:100%;
 
 }
 
 .connectionContent{
     background-color: #4CAF50;
     min-height: 200px;
+    padding:5px;
 }
 
 .alentoursContent{
     background-color: #FFC107;
     min-height: 200px;
+    padding:5px;
 
 }
 .itineraireContent{
     background-color: #871C1C;
     min-height: 200px;
+    padding:5px;
 }
 .textContent{
-    color: white;
-    padding-left: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.5em;
+    width: 100%;
+    display: block;
+    line-height: 45px;
+    color:#FFF;
+    padding-right:60px;
 }
 .linkContent{
     text-decoration: none;
     text-align: center;
-    font-size: 22px;
+    font-size: 1.875em;
     width: 100%;
     display: block;
-    line-height: 50px;
+    line-height: 55px;
+    color:#FFF;
+    padding-right:60px;
 }
 
 .inputMenu{
     color: black;
+    width:150px;
+    height:30px;
+    vertical-align: middle;
+    line-height: 30px;
 }
 .submitButton{
     float: right;
-    margin-top: 10px;
-    margin-right: 10px;
 }
 .subscriptionButton{
-    font-size: 22px;
-    margin-top: 35px;
-
+    font-size: 1.5em;
+    float:left;
+    width:100px;
 }
-.connectionLabels{
-    margin-top: 15px;
-    margin-bottom: 5px;
+.labels{
+    font-size:1.5em;
+    text-align: left;
+    margin-left:15px;
+    line-height: 30px;
+}
+#connexion{
+    height:30px;
+    margin-top:15px;
+    padding-left:5px;
+    width: 190px;
+
 }
 .positionImage{
     float: right;
     width: 35px;
 }
 .inputHours{
-    margin-top: 10px;
     width: 40px;
     height: 40px;
     display: inline-block;
 }
 .hoursImage{
     width: 40px;
-    margin-top: 10px;
     display: inline-block;
     float: right;
 }
 .hoursLetter{
-    font-size: 25px;
+    font-size: 1.5em;
 }

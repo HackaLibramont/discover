@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class Stay implements Iterable<Map.Entry<Schedule, Activity>>, Serializable {
 
-    private final Long id;
+    private Long id;
     private ScheduleMap<Activity> activities;
     private Schedule stayDuration;
 
@@ -70,7 +70,22 @@ public class Stay implements Iterable<Map.Entry<Schedule, Activity>>, Serializab
 
     }
 
+    public void setId(Long newId)
+    {
+        this.id = newId;
+    }
+
     public Long getId() {
         return id;
+    }
+
+    public Timestamp getStart()
+    {
+        return this.stayDuration.start();
+    }
+
+    public Timestamp getEnd()
+    {
+        return this.stayDuration.end();
     }
 }
