@@ -14,7 +14,7 @@ import java.util.List;
 
 @Controller
 public class RequestsController {
-    @RequestMapping(value = "activities" , method = RequestMethod.GET)
+    @RequestMapping(value = "activities" , method = RequestMethod.POST)
     public @ResponseBody List<Activity> getActivities(@RequestBody ActivitiesRequest request){
 
         /*List<Activity> activities = new ArrayList<Activity>();
@@ -31,7 +31,9 @@ public class RequestsController {
 
         Filter filter = new Filter();
         filter.addQuadriFilter(((double)request.getLongitude())-halfSideCoord, ((double)request.getLatitude())-halfSideCoord, ((double)request.getLongitude())+halfSideCoord, ((double)request.getLatitude())+halfSideCoord);
-
+        if(request.getCheckedCategories() != null)
+            for(Long category : request.getCheckedCategories())
+                filter.addSuperCategoryFilter(category.toString());
         ActivityDAO dao = new ActivityDAO();
         return dao.filter(filter, AbstractDAO.LANG.FR);
     }
