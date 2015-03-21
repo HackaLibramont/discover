@@ -18,7 +18,6 @@
     </script>
     <script type="text/javascript">
         function initialize() {
-            debugger;
             var mapOptions = {
                 center: { lat: -34.397, lng: 150.644},
                 zoom: 8
@@ -48,13 +47,12 @@
     </script>
 
     <link rel="stylesheet" href="<c:url value="/resources/lib/bootstrap-3.3.4-dist/css/bootstrap.min.css" />">
-    <link rel="stylesheet" href="<c:url value="/resources/lib/bootstrap-3.3.4-dist/css/bootstrap.min.css" />">
-    <link rel="stylesheet" href="lib/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="lib/jasny-bootstrap/css/jasny-bootstrap.min.css">
-    <link rel="stylesheet" href="css/navmenu.css">
-    <script src="lib/jquery/jquery-1.11.2.min.js"></script>
-    <script src="lib/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
-    <script src="lib/jasny-bootstrap/js/jasny-bootstrap.min.js"></script>
+    <link rel="stylesheet" href="<c:url value="/resources/lib/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css" />">
+    <link rel="stylesheet" href="<c:url value="/resources/lib/jasny-bootstrap/css/jasny-bootstrap.min.css" />">
+    <link rel="stylesheet" href="<c:url value="/resources/css/navmenu.css" />">
+    <script src="<c:url value="/resources/lib/jquery/jquery-1.11.2.min.js" />"></script>
+    <script src="<c:url value="/resources/lib/bootstrap-3.3.4-dist/js/bootstrap.min.js" />"></script>
+    <script src="<c:url value="/resources/lib/jasny-bootstrap/js/jasny-bootstrap.min.js" />"></script>
 
 </head>
 <body>
