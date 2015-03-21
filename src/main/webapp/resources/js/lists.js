@@ -14,6 +14,8 @@ function setCursorPosition(latitude, longitude){
     console.log(latitude);
     $("#userLatitude1").val(latitude);
     $("#userLongitude1").val(longitude);
+    $("#userLatitude2").val(latitude);
+    $("#userLongitude2").val(longitude);
 }
 
 function findActivitiesAround(e)
@@ -26,7 +28,7 @@ function findActivitiesAround(e)
     }*/
     var lat = $("#userLatitude1").val();
     var long = $("#userLongitude1").val();
-    var dist = $("#userDistance1").val()*1000;
+    var dist = $("#userDistance1").val();
 
     $.ajax({
         url: "/activities",
