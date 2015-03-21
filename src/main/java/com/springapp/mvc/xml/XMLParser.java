@@ -2,6 +2,7 @@ package com.springapp.mvc.xml;
 
 
 import com.springapp.mvc.dao.*;
+import com.springapp.mvc.dao.data.Filter;
 import com.springapp.mvc.data.activity.Category;
 import com.springapp.mvc.data.activity.CategoryName;
 import com.springapp.mvc.data.activity.Contact;
@@ -38,9 +39,12 @@ public class XMLParser {
 
 
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
-        Scanner keyboard = new Scanner(System.in);
+        Filter filter = new Filter();
+        filter.addSuperCategoryFilter("3");
+        new ActivityDAO().filter(filter, AbstractDAO.LANG.EN);
+       /* Scanner keyboard = new Scanner(System.in);
         System.out.print("path : c:/Users/Nathan/Desktop/hackathon.xml");
-        parse("c:/Users/Nathan/Desktop/hackathon.xml");
+        parse("c:/Users/Nathan/Desktop/hackathon.xml");*/
     }
 
     public static void parse(String path) throws ParserConfigurationException, IOException, SAXException {
