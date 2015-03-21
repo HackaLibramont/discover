@@ -46,6 +46,13 @@ public abstract class AbstractDAO<T, ID_TYPE> {
     {
         if(connection == null)
             try {
+                Class.forName("com.mysql.jdbc.Driver");
+            } catch (ClassNotFoundException e) {
+                System.out.println("Where is your MySQL JDBC Driver?");
+                e.printStackTrace();
+                return null;
+            }
+            try {
                 connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + DATABASE_NAME, "root", "");
             } catch (SQLException e) {
                 e.printStackTrace();

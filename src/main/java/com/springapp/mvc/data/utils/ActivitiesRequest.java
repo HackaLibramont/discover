@@ -1,11 +1,13 @@
 package com.springapp.mvc.data.utils;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class ActivitiesRequest implements Serializable {
     private float latitude;
     private float longitude;
     private int maxTravelDistance;
+    private List<Long> checkedCategories;
 
     public float getLatitude() {
         return latitude;
@@ -29,5 +31,13 @@ public class ActivitiesRequest implements Serializable {
 
     public void setMaxTravelDistance(int maxTravelDistance) {
         this.maxTravelDistance = maxTravelDistance;
+    }
+
+    public List<Long> getCheckedCategories() {
+        return this.checkedCategories;
+    }
+
+    public void setCheckedCategories(List<Long> checkedCategories) {
+        this.checkedCategories = checkedCategories;
     }
 }
