@@ -46,7 +46,7 @@ public abstract class AbstractDAO<T, ID_TYPE> {
     {
         if(connection == null)
             try {
-                connection = DriverManager.getConnection("jdbc:mysql://172.16.115.109:3306/" + DATABASE_NAME, "user", "123");
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + DATABASE_NAME, "root", "");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
