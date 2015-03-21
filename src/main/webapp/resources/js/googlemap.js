@@ -37,6 +37,10 @@ function initialize() {
             ["50.087692","14.421150"],
             ["55.930385","14.421150"]
         ]);
+
+    google.maps.event.addListener(map, 'click', function(event) {
+        setCursorPosition(event.latLng.lat(), event.latLng.lng());
+    });
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 window.addEventListener("resize", function (event) {
@@ -50,10 +54,7 @@ window.addEventListener("resize", function (event) {
     if(eltBound > 1)
         map.fitBounds(bounds);
 });
-google.maps.event.addListener(map, 'click', function(event) {
-    alert("bite");
-    setCursorPosition(event.latLng.lat(), event.latLng.lng());
-});
+
 
 function callback(response, status) {
     tabResult = [];

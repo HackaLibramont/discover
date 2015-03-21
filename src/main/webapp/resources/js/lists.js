@@ -12,11 +12,11 @@ function testGet(){
 
 function setCursorPosition(latitude, longitude){
     console.log(latitude);
-    $("#userLatitude1").text(latitude);
-    $("#userLongitude1").text(longitude);
+    $("#userLatitude1").val(latitude);
+    $("#userLongitude1").val(longitude);
 }
 
-function findActivitesAround(e)
+function findActivitiesAround(e)
 {
     e.preventDefault();
     var checks;

@@ -63,8 +63,8 @@
                                         <input type="text" class="inputMenu inputHours" name="userDistance" id="userDistance1" width="30px">
                                         <img src="<c:url value="/resources/img/time.png"/>" class="hoursImage">
                                     </span>
-                                <a href="">
-                                    <img src="<c:url value="/resources/img/start.png"/>" alt="Voir les poins d'interêt" class="submitButton" onclick="findActivitiesAround()">
+                                <a href="#">
+                                    <img src="<c:url value="/resources/img/start.png"/>" alt="Voir les poins d'interêt" class="submitButton" onclick="findActivitiesAround(event)">
                                 </a>
 
 
@@ -82,7 +82,7 @@
                             <input type="text" class="inputMenu inputHours" name="userDistance" id="userDistance2" width="30px">
                             <img src="<c:url value="/resources/img/time.png"/>" class="hoursImage">
                         </span>
-                                <a href="">
+                                <a href="#">
                                     <img src="<c:url value="/resources/img/start.png"/>" alt="Voir l'itinéraire" class="submitButton" onclick="findActivitiesPath()">
                                 </a>
 
