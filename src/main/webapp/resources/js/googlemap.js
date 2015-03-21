@@ -64,6 +64,9 @@ window.addEventListener("resize", function (event) {
     if(eltBound > 1)
         map.fitBounds(bounds);
 });
+google.maps.event.addListener(map, 'click', function(event) {
+    setCursorPosition(event.latLng.lat(), event.latLng.lng());
+});
 
 function callback(response, status) {
     tabResult = [];
