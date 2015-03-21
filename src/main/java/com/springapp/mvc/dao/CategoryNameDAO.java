@@ -16,11 +16,12 @@ public class CategoryNameDAO extends AbstractDAO<CategoryName, String> {
 
     @Override
     public List<CategoryName> findAll() {
+        PreparedStatement statement = null;
         List<CategoryName> result = new ArrayList<CategoryName>();
         StringBuilder sql = new StringBuilder();
-        sql.append("select * from categoryName");
+        sql.append("select * from category_name");
         try {
-            PreparedStatement statement = AbstractDAO.connection().prepareStatement(sql.toString());
+            statement = AbstractDAO.connection().prepareStatement(sql.toString());
             ResultSet res = statement.executeQuery();
             while (res.next())
             {
@@ -37,7 +38,8 @@ public class CategoryNameDAO extends AbstractDAO<CategoryName, String> {
         finally
         {
             try {
-                connection().close();
+                if (statement != null)
+                    statement.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -53,11 +55,12 @@ public class CategoryNameDAO extends AbstractDAO<CategoryName, String> {
 
     @Override
     public CategoryName find(String id) {
-        CategoryName result = null;
+        PreparedStatement statement = null;
+                CategoryName result = null;
         StringBuilder sql = new StringBuilder();
-        sql.append("select * from " + ".categoryName where id = ?");
+        sql.append("select * from category_name where id = ?");
         try {
-            PreparedStatement statement = AbstractDAO.connection().prepareStatement(sql.toString());
+           statement = AbstractDAO.connection().prepareStatement(sql.toString());
             statement.setString(1, id);
             ResultSet res = statement.executeQuery();
             if (res.next())
@@ -75,7 +78,8 @@ public class CategoryNameDAO extends AbstractDAO<CategoryName, String> {
         finally
         {
             try {
-                connection().close();
+                if (statement != null)
+                    statement.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -90,10 +94,11 @@ public class CategoryNameDAO extends AbstractDAO<CategoryName, String> {
 
     @Override
     public void insert(CategoryName categoryName) {
+        PreparedStatement statement = null;
         StringBuilder sql = new StringBuilder();
-        sql.append("insert into categoryName values(?, ?)");
+        sql.append("insert into category_name values(?, ?)");
         try {
-            PreparedStatement statement = AbstractDAO.connection().prepareStatement(sql.toString());
+            statement = AbstractDAO.connection().prepareStatement(sql.toString());
             statement.setString(1, categoryName.getId());
             statement.setLong(2, categoryName.getForeignKey());
             statement.executeUpdate();
@@ -108,7 +113,8 @@ public class CategoryNameDAO extends AbstractDAO<CategoryName, String> {
         finally
         {
             try {
-                connection().close();
+                if (statement != null)
+                    statement.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -117,10 +123,11 @@ public class CategoryNameDAO extends AbstractDAO<CategoryName, String> {
 
     @Override
     public void update(CategoryName categoryName) {
+        PreparedStatement statement = null;
         StringBuilder sql = new StringBuilder();
-        sql.append("update categoryName set val = ?");
+        sql.append("update category_name set val = ?");
         try {
-            PreparedStatement statement = AbstractDAO.connection().prepareStatement(sql.toString());
+            statement = AbstractDAO.connection().prepareStatement(sql.toString());
             statement.setLong(1, categoryName.getForeignKey());
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -134,7 +141,8 @@ public class CategoryNameDAO extends AbstractDAO<CategoryName, String> {
         finally
         {
             try {
-                connection().close();
+                if (statement != null)
+                    statement.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

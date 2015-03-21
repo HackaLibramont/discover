@@ -41,18 +41,19 @@ public class Activity_labelDAO extends AbstractDAO<Category, Long>
 
     }
 
-    public void insert(long id, String lang, long activity_id, String title, long description)
+    public void insert(long id, String lang, long activity_id, String title, String description)
     {
-        StringBuilder sql = new StringBuilder();
+        PreparedStatement statement = null;
+                StringBuilder sql = new StringBuilder();
         sql.append("insert into activity_label values(?, ?, ?, ?, ?)");
         try
         {
-            PreparedStatement statement = AbstractDAO.connection().prepareStatement(sql.toString());
+            statement = AbstractDAO.connection().prepareStatement(sql.toString());
             statement.setLong(1, id);
             statement.setString(2, lang);
             statement.setLong(3, activity_id);
             statement.setString(4, title);
-            statement.setLong(5, description);
+            statement.setString(5, description);
             statement.executeUpdate();
         } catch (SQLException e)
         {
@@ -68,7 +69,8 @@ public class Activity_labelDAO extends AbstractDAO<Category, Long>
         {
             try
             {
-                connection().close();
+                if (statement != null)
+                    statement.close();
             } catch (SQLException e)
             {
                 e.printStackTrace();

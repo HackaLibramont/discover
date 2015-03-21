@@ -17,12 +17,13 @@ public class LocationDAO extends AbstractDAO<Location, Long>
     @Override
     public List<Location> findAll()
     {
-        List<Location> result = new ArrayList<Location>();
+        PreparedStatement statement = null;
+                List<Location> result = new ArrayList<Location>();
         StringBuilder sql = new StringBuilder();
         sql.append("select * from location");
         try
         {
-            PreparedStatement statement = AbstractDAO.connection().prepareStatement(sql.toString());
+            statement = AbstractDAO.connection().prepareStatement(sql.toString());
             ResultSet res = statement.executeQuery();
             while (res.next())
             {
@@ -42,7 +43,8 @@ public class LocationDAO extends AbstractDAO<Location, Long>
         {
             try
             {
-                connection().close();
+                if (statement != null)
+                    statement.close();
             } catch (SQLException e)
             {
                 e.printStackTrace();
@@ -66,12 +68,13 @@ public class LocationDAO extends AbstractDAO<Location, Long>
     @Override
     public Location find(Long id, LANG lang)
     {
-        Location result = null;
+        PreparedStatement statement = null;
+                Location result = null;
         StringBuilder sql = new StringBuilder();
         sql.append("select * from " + ".location where id = ? and lang = ?");
         try
         {
-            PreparedStatement statement = AbstractDAO.connection().prepareStatement(sql.toString());
+            statement = AbstractDAO.connection().prepareStatement(sql.toString());
             statement.setLong(1, id);
             statement.setString(2, lang.getDbName());
             ResultSet res = statement.executeQuery();
@@ -93,7 +96,8 @@ public class LocationDAO extends AbstractDAO<Location, Long>
         {
             try
             {
-                connection().close();
+                if (statement != null)
+                    statement.close();
             } catch (SQLException e)
             {
                 e.printStackTrace();
@@ -105,11 +109,12 @@ public class LocationDAO extends AbstractDAO<Location, Long>
     @Override
     public void insert(Location location)
     {
-        StringBuilder sql = new StringBuilder();
+        PreparedStatement statement = null;
+                StringBuilder sql = new StringBuilder();
         sql.append("insert into location values(?, ?, ?, ?, ?, ?)");
         try
         {
-            PreparedStatement statement = AbstractDAO.connection().prepareStatement(sql.toString());
+            statement = AbstractDAO.connection().prepareStatement(sql.toString());
             statement.setLong(1, location.getId());
             statement.setString(2, location.getName());
             statement.setString(3, location.getPostcode());
@@ -122,7 +127,7 @@ public class LocationDAO extends AbstractDAO<Location, Long>
             e.printStackTrace();
             try
             {
-                connection().rollback();
+                    connection().rollback();
             } catch (SQLException e1)
             {
                 e1.printStackTrace();
@@ -131,7 +136,8 @@ public class LocationDAO extends AbstractDAO<Location, Long>
         {
             try
             {
-                connection().close();
+                if (statement != null)
+                    statement.close();
             } catch (SQLException e)
             {
                 e.printStackTrace();
