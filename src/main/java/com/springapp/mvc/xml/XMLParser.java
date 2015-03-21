@@ -66,38 +66,70 @@ public class XMLParser {
                     if (title.getAttribute("lg") != null && !(title.getAttribute("lg").equals("")))
                         titles.put(title.getAttribute("lg"), title.getChildNodes().item(0).getNodeValue());
                 }
-                Node descr = ((Element) ((Element) offer).getElementsByTagName("descriptions").item(0)).getElementsByTagName("description").item(0);
-                for (int j = 0; j < ((Element) descr).getElementsByTagName("texte").getLength(); ++j) {
-                    Element text = (Element) ((Element) descr).getElementsByTagName("texte").item(j);
-                    if (text.getAttribute("lg") != null && !(text.getAttribute("lg").equals("")))
-                        descriptions.put(text.getAttribute("lg"), text.getChildNodes().item(0).getNodeValue());
+                try {
+                    Node descr = ((Element) ((Element) offer).getElementsByTagName("descriptions").item(0)).getElementsByTagName("description").item(0);
+                    for (int j = 0; j < ((Element) descr).getElementsByTagName("texte").getLength(); ++j) {
+                        Element text = (Element) ((Element) descr).getElementsByTagName("texte").item(j);
+                        if (text.getAttribute("lg") != null && !(text.getAttribute("lg").equals("")))
+                            descriptions.put(text.getAttribute("lg"), text.getChildNodes().item(0).getNodeValue());
+                    }
+                } catch (NullPointerException e) {
                 }
                 Node category = ((Element) ((Element) offer).getElementsByTagName("categories").item(0)).getElementsByTagName("categorie").item(0);
                 categoryName = ((Element) category).getAttribute("id");
                 for (int j = 0; j < ((Element) category).getElementsByTagName("lib").getLength(); ++j) {
                     Element lib = (Element) ((Element) category).getElementsByTagName("lib").item(j);
-                    if (lib.getAttribute("lg") != null && !(lib.getAttribute("lg").equals("")))
-                        categoryNames.put(lib.getAttribute("lg"), lib.getChildNodes().item(0).getNodeValue());
+                    try {
+                        if (lib.getAttribute("lg") != null && !(lib.getAttribute("lg").equals("")))
+                            categoryNames.put(lib.getAttribute("lg"), lib.getChildNodes().item(0).getNodeValue());
+                    } catch (NullPointerException e) {
+                    }
                 }
-                Element contact = (Element) ((Element) ((Element) offer).getElementsByTagName("contacts").item(0)).getElementsByTagName("contact").item(0);
-                String cLastName = contact.getElementsByTagName("noms").item(0).getChildNodes().item(0).getNodeValue();
-                String cFirstName = contact.getElementsByTagName("prenoms").item(0).getChildNodes().item(0).getNodeValue();
-                String cAdress = contact.getElementsByTagName("adresse").item(0).getChildNodes().item(0).getNodeValue();
-                String cNumber = contact.getElementsByTagName("numero").item(0).getChildNodes().item(0).getNodeValue();
+
+                String cLastName = null;
+                String cFirstName = null;
+                String cAdress = null;
+                String cNumber = null;
                 String cPhone = null;
                 String cWebsite = null;
                 String cMail = null;
-                NodeList communications = contact.getElementsByTagName("communications");
-                for (int j = 0; j < communications.item(0).getChildNodes().getLength(); ++j) {
-                    Element comm = (Element) communications.item(0).getChildNodes().item(j);
-                    if (comm.getAttribute("typ").equals("tel"))
-                        cPhone = comm.getElementsByTagName("val").item(0).getChildNodes().item(0).getNodeValue();
-                    else if (comm.getAttribute("typ").equals("mail"))
-                        cMail = comm.getElementsByTagName("val").item(0).getChildNodes().item(0).getNodeValue();
-                    else if (comm.getAttribute("typ").equals("url"))
-                        cWebsite = comm.getElementsByTagName("val").item(0).getChildNodes().item(0).getNodeValue();
-
+                try {
+                    Element contact = (Element) ((Element) ((Element) offer).getElementsByTagName("contacts").item(0)).getElementsByTagName("contact").item(0);
+                    cLastName = contact.getElementsByTagName("noms").item(0).getChildNodes().item(0).getNodeValue();
+                } catch (NullPointerException e) {
                 }
+                try {
+                    Element contact = (Element) ((Element) ((Element) offer).getElementsByTagName("contacts").item(0)).getElementsByTagName("contact").item(0);
+                    cFirstName = contact.getElementsByTagName("prenoms").item(0).getChildNodes().item(0).getNodeValue();
+                } catch (NullPointerException e) {
+                }
+                try {
+                    Element contact = (Element) ((Element) ((Element) offer).getElementsByTagName("contacts").item(0)).getElementsByTagName("contact").item(0);
+                    cAdress = contact.getElementsByTagName("adresse").item(0).getChildNodes().item(0).getNodeValue();
+                } catch (NullPointerException e) {
+                }
+                try {
+                    Element contact = (Element) ((Element) ((Element) offer).getElementsByTagName("contacts").item(0)).getElementsByTagName("contact").item(0);
+                    cNumber = contact.getElementsByTagName("numero").item(0).getChildNodes().item(0).getNodeValue();
+                } catch (NullPointerException e) {
+                }
+                try {
+                    Element contact = (Element) ((Element) ((Element) offer).getElementsByTagName("contacts").item(0)).getElementsByTagName("contact").item(0);
+                    NodeList communications = contact.getElementsByTagName("communications");
+                    try {
+                        for (int j = 0; j < communications.item(0).getChildNodes().getLength(); ++j) {
+                            Element comm = (Element) communications.item(0).getChildNodes().item(j);
+                            if (comm.getAttribute("typ").equals("tel"))
+                                cPhone = comm.getElementsByTagName("val").item(0).getChildNodes().item(0).getNodeValue();
+                            else if (comm.getAttribute("typ").equals("mail"))
+                                cMail = comm.getElementsByTagName("val").item(0).getChildNodes().item(0).getNodeValue();
+                            else if (comm.getAttribute("typ").equals("url"))
+                                cWebsite = comm.getElementsByTagName("val").item(0).getChildNodes().item(0).getNodeValue();
+
+                        }
+                    } catch (NullPointerException e) {
+                    }
+                } catch (NullPointerException e){}
                 Element location = (Element) ((Element) ((Element) offer).getElementsByTagName("localisation").item(0)).getElementsByTagName("localite").item(0);
                 Long lId = null;
                 String lName = null;
@@ -118,8 +150,6 @@ public class XMLParser {
 
                 }
 
-                Contact contactObj = new Contact(++autoIncContact, cFirstName, cLastName, cPhone, cWebsite, cMail, cNumber, cAdress);
-
                 if (lId != null) {
                     Location localiteObj = XMLParser.localDAO.find(lId);
                     if (localiteObj == null) {
@@ -136,6 +166,9 @@ public class XMLParser {
                         catDAO.insert(categoryObj);
                     }
                 }
+
+                Contact contactObj = new Contact(++autoIncContact, cFirstName, cLastName, cPhone, cWebsite, cMail, cNumber, cAdress);
+
                 XMLParser.ctctDAO.insert(contactObj);
                 actDAO.insert(id, XMLParser.autoIncCategory, XMLParser.autoIncContact, media, lId);
                 Long actId = ++autoIncActivity;
@@ -143,7 +176,8 @@ public class XMLParser {
                     actLabelDAO.insert(actId, lang, id, titles.get(lang), descriptions.get(lang));
                 System.out.println("added " + i);
             } catch (NullPointerException e) {
-                System.out.println("null " + i + " "  + e.getCause());
+                System.out.println("null " + i + " ");
+                e.printStackTrace();
             }
         }
     }
