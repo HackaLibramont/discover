@@ -31,13 +31,6 @@ function initialize() {
         destinationB
     ];
 
-    proximityMap(
-        ["55.930385","-3.118425"],
-        [
-            ["50.087692","14.421150"],
-            ["55.930385","14.421150"]
-        ]);
-
     google.maps.event.addListener(map, 'click', function(event) {
         setCursorPosition(event.latLng.lat(), event.latLng.lng());
     });
@@ -100,8 +93,8 @@ function proximityMap(actualLocalisation,tabLocations)
     var tabLatLng = [];
     for(var i = 0; i < tabLocations.length; i++)
     {
-        tabLatLng.push(new google.maps.LatLng(tabLocations[i].geoX,tabLocations[i].geoY));
-        bounds.extend(new google.maps.LatLng(tabLocations[i].geoX,tabLocations[i].geoY));
+        tabLatLng.push(new google.maps.LatLng(tabLocations[i].geoY,tabLocations[i].geoX));
+        bounds.extend(new google.maps.LatLng(tabLocations[i].geoY,tabLocations[i].geoX));
         eltBound++;
     }
 

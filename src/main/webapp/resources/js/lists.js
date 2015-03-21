@@ -40,6 +40,6 @@ function findActivitiesAround(e)
         })
     }).done(function( data ){
         //console.log( "Sample of data:", data.slice( 0, 100 ) );
-
+        proximityMap([lat,long], data);
     });
 }
