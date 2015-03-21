@@ -2,9 +2,7 @@ package com.springapp.mvc.dao;
 
 
 import com.springapp.mvc.dao.data.Filter;
-import com.springapp.mvc.data.activity.Activity;
-import com.springapp.mvc.data.activity.Contact;
-import com.springapp.mvc.data.activity.Location;
+import com.springapp.mvc.data.activity.*;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -190,10 +188,37 @@ public class ActivityDAO extends AbstractDAO<Activity, Long>{
                 String scatName = res.getString("scatName");
                 Location localisation = new Location(locId, locName, locPostcode, locX, locY, locComm);
                 Contact contact = new Contact(conId, conLastName, conFirstName, conPhone, conWebsite, conMail, conNumber, conAddress);
+                Activity activity = null;
                 if (scatName.equals("Hébergement"))
                 {
-
+                    activity = new Accomodation(actId, actlTitle, localisation, contact, actX, actY, actMedia);
                 }
+                else if (scatName.equals("Lieu"))
+                {
+                    activity = new Place(actId, actlTitle, localisation, contact, actX, actY, actMedia);
+                }
+                else if (scatName.equals("Loisir"))
+                {
+                    activity = new Leisure(actId, actlTitle, localisation, contact, actX, actY, actMedia);
+                }
+                else if (scatName.equals("Sport"))
+                {
+                    activity = new Sport(actId, actlTitle, localisation, contact, actX, actY, actMedia);
+                }
+                else if (scatName.equals("Patrimoine"))
+                {
+                    activity = new Heritage(actId, actlTitle, localisation, contact, actX, actY, actMedia);
+                }
+                else if (scatName.equals("Production"))
+                {
+                    activity = new Production(actId, actlTitle, localisation, contact, actX, actY, actMedia);
+                }
+                else if (scatName.equals("Evènement"))
+                {
+                    activity = new Tourism(actId, actlTitle, localisation, contact, actX, actY, actMedia);
+                }
+                if (activity != null)
+                    result.add(activity);
             }
         } catch (SQLException e) {
             e.printStackTrace();

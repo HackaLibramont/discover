@@ -15,8 +15,9 @@ public abstract class Activity
     private final Double geoY;
     private String description;
     private final Contact mainContact;
+    private final String mediaUrl;
 
-    public Activity(Long id, String n, Location location, Contact mainContact, Double geoX, Double geoY)
+    public Activity(Long id, String n, Location location, Contact mainContact, Double geoX, Double geoY, String media)
     {
         Id = id;
         name = n;
@@ -24,6 +25,7 @@ public abstract class Activity
         this.mainContact = mainContact;
         this.geoX = geoX;
         this.geoY = geoY;
+        this.mediaUrl = media;
     }
 
     public void setDescription(String d)
@@ -90,5 +92,9 @@ public abstract class Activity
     public Double getGeoY()
     {
         return geoY;
+    }
+
+    public String getMediaUrl() {
+        return mediaUrl;
     }
 }

@@ -10,14 +10,14 @@ public class Sport extends Activity
     private Timestamp start;
     private Timestamp end;
 
-    public Sport(Long id, String n, Location location, Contact mainContact, Double geoX, Double geoY)
+    public Sport(Long id, String n, Location location, Contact mainContact, Double geoX, Double geoY, String media)
     {
-        super(id, n, location, mainContact, geoX, geoY);
+        super(id, n, location, mainContact, geoX, geoY, media);
     }
 
-    public Sport(Long id, String n, Location location, Contact mainContact, Double geoX, Double geoY, Timestamp end, Timestamp start)
+    public Sport(Long id, String n, Location location, Contact mainContact, Double geoX, Double geoY, Timestamp end, Timestamp start, String media)
     {
-        super(id, n, location, mainContact, geoX, geoY);
+        super(id, n, location, mainContact, geoX, geoY, media);
         this.end = end;
         this.start = start;
     }

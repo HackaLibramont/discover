@@ -7,9 +7,9 @@ import java.sql.Timestamp;
  */
 public class Heritage extends Activity
 {
-    public Heritage(Long id, String n, Location location, Contact mainContact, Double geoX, Double geoY)
+    public Heritage(Long id, String n, Location location, Contact mainContact, Double geoX, Double geoY, String media)
     {
-        super(id, n, location, mainContact, geoX, geoY);
+        super(id, n, location, mainContact, geoX, geoY, media);
     }
 
     @Override

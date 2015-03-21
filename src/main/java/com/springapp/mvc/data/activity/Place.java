@@ -10,14 +10,14 @@ public class Place extends Activity
     private Timestamp start;
     private Timestamp end;
 
-    public Place(Long id, String n, Location location, Contact mainContact, Double geoX, Double geoY)
+    public Place(Long id, String n, Location location, Contact mainContact, Double geoX, Double geoY, String media)
     {
-        super(id, n, location, mainContact, geoX, geoY);
+        super(id, n, location, mainContact, geoX, geoY, media);
     }
 
-    public Place(Long id, String n, Location location, Contact mainContact, Double geoX, Double geoY, Timestamp start, Timestamp end)
+    public Place(Long id, String n, Location location, Contact mainContact, Double geoX, Double geoY, Timestamp start, Timestamp end, String media)
     {
-        super(id, n, location, mainContact, geoX, geoY);
+        super(id, n, location, mainContact, geoX, geoY, media);
         this.start = start;
         this.end = end;
     }

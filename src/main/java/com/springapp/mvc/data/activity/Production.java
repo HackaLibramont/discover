@@ -10,14 +10,14 @@ public class Production extends Activity
     private Timestamp start;
     private Timestamp end;
 
-    public Production(Long id, String n, Location location, Contact mainContact, Double geoX, Double geoY)
+    public Production(Long id, String n, Location location, Contact mainContact, Double geoX, Double geoY, String media)
     {
-        super(id, n, location, mainContact, geoX, geoY);
+        super(id, n, location, mainContact, geoX, geoY, media);
     }
 
-    public Production(Long id, String n, Location location, Contact mainContact, Double geoX, Double geoY, Timestamp start, Timestamp end)
+    public Production(Long id, String n, Location location, Contact mainContact, Double geoX, Double geoY, Timestamp start, Timestamp end, String media)
     {
-        super(id, n, location, mainContact, geoX, geoY);
+        super(id, n, location, mainContact, geoX, geoY, media);
         this.start = start;
         this.end = end;
     }
