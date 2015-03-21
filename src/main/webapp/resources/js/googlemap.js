@@ -188,8 +188,8 @@ function createMarker(latLng,tabLocation)
         '<h4>Contact :</h4>'+
         '<p><a href="'+ tabLocation.mainContact.website+'">'
         + tabLocation.mainContact.website +'</a></p> ' +
-        '<p>'+  +'</p>'+
-        '<p>+352 691 678 496</p>' +
+        '<p>'+tabLocation.mainContact.email+'</p>'+
+        '<p>'+tabLocation.mainContact.phone+'</p>' +
         '</div>'+
         '</div>';
 
