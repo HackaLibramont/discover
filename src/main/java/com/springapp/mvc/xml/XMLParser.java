@@ -3,7 +3,10 @@ package com.springapp.mvc.xml;
 
 import com.springapp.mvc.dao.*;
 import com.springapp.mvc.dao.data.Filter;
-import com.springapp.mvc.data.activity.*;
+import com.springapp.mvc.data.activity.Category;
+import com.springapp.mvc.data.activity.CategoryName;
+import com.springapp.mvc.data.activity.Contact;
+import com.springapp.mvc.data.activity.Location;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -15,9 +18,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -35,23 +36,18 @@ public class XMLParser {
     private static LocationDAO localDAO = new LocationDAO();
     private static ActivityDAO actDAO = new ActivityDAO();
     private static Activity_labelDAO actLabelDAO = new Activity_labelDAO();
-    private static StayDAO stayDAO = new StayDAO();
 
 
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
+        double lati = 49.9274427;
+        double longi = 5.3813976;
+        double ratio = 1./111.;
+        double halfSideKm = 10;
+        double halfSideCoord = halfSideKm * ratio;
 
         Filter filter = new Filter();
-        filter.addQuadriFilter(5.352, 49.918, 5.75, 50.234);
-        List<Activity> list = new ActivityDAO().filter(filter, AbstractDAO.LANG.EN);
-        System.out.println(list.size());
-        /*Stay stay = new Stay(new Timestamp(181564164L), new Timestamp(181864164L));
-        stay.addActivity(new Timestamp(181564164L), new Timestamp(181574164L), new Accomodation (241L, null, null, null, null, null, null));
-        stay.addActivity(new Timestamp(181594164L), new Timestamp(181594984L), new Accomodation (241L, null, null, null, null, null, null));
-        stayDAO.insert(stay);
-        System.out.println(stay.getId());
-        Filter filter = new Filter();
-        filter.addSuperCategoryFilter("3");
-        new ActivityDAO().filter(filter, AbstractDAO.LANG.EN);*/
+        filter.addQuadriFilter(longi-halfSideCoord, lati-halfSideCoord, longi+halfSideCoord, lati+halfSideCoord);
+        new ActivityDAO().filter(filter, AbstractDAO.LANG.EN);
        /* Scanner keyboard = new Scanner(System.in);
         System.out.print("path : c:/Users/Nathan/Desktop/hackathon.xml");
         parse("c:/Users/Nathan/Desktop/hackathon.xml");*/

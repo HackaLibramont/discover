@@ -10,8 +10,6 @@ import java.util.Map;
  */
 public class Filter {
 
-
-
     public  abstract class FilterLine {
 
         private final String dbColName;
