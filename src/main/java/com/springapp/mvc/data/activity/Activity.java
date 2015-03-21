@@ -16,7 +16,9 @@ public abstract class Activity
     private String description;
     private final Contact mainContact;
 
-    public Activity(String n, Location location, Contact mainContact, Double geoX, Double geoY) {
+    public Activity(Long id, String n, Location location, Contact mainContact, Double geoX, Double geoY)
+    {
+        Id = id;
         name = n;
         this.location = location;
         this.mainContact = mainContact;
@@ -24,7 +26,8 @@ public abstract class Activity
         this.geoY = geoY;
     }
 
-    public void setDescription(String d) {
+    public void setDescription(String d)
+    {
         description = d;
     }
 
@@ -44,27 +47,33 @@ public abstract class Activity
 
     public abstract Category getCategory();
 
-    public String toString() {
+    public String toString()
+    {
         return this.name;
     }
 
-    public Long getId() {
+    public Long getId()
+    {
         return Id;
     }
 
-    public void setId(long id) {
+    public void setId(long id)
+    {
         Id = id;
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name)
+    {
         this.name = name;
     }
 
-    public String getDescription() {
+    public String getDescription()
+    {
         return description;
     }
 
@@ -73,11 +82,13 @@ public abstract class Activity
         return this.location.getId();
     }
 
-    public Double getGeoX() {
+    public Double getGeoX()
+    {
         return geoX;
     }
 
-    public Double getGeoY() {
+    public Double getGeoY()
+    {
         return geoY;
     }
 }
