@@ -82,7 +82,7 @@ public class ActivityDAO extends AbstractDAO<Activity, Long>{
         return null;
     }
 
-    public void insert(long id, long categorie, long contact, String media, long location)
+    public void insert(Long id, Long categorie, Long contact, String media, Long location)
     {
         StringBuilder sql = new StringBuilder();
         sql.append("insert into activity values(?, ?, ?, ?, ?)");

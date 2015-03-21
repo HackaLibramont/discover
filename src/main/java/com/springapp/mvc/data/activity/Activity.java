@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 public abstract class Activity
 {
 
-    private long Id;
+    private Long Id;
     private String name;
     private final Location location;
     private String description;
@@ -44,7 +44,7 @@ public abstract class Activity
         return this.name;
     }
 
-    public long getId() {
+    public Long getId() {
         return Id;
     }
 
@@ -64,7 +64,7 @@ public abstract class Activity
         return description;
     }
 
-    public long getLocationId()
+    public Long getLocationId()
     {
         return this.location.getId();
     }
