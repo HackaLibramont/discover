@@ -155,3 +155,4 @@ public class CategoryNameDAO extends AbstractDAO<CategoryName, String> {
         return null;
     }
 }
+
