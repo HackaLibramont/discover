@@ -60,12 +60,13 @@ public class CategoryDAO extends AbstractDAO<Category, Long>
     @Override
     public Category find(Long id, LANG lang)
     {
-        Category result = null;
+        PreparedStatement statement = null;
+                Category result = null;
         StringBuilder sql = new StringBuilder();
         sql.append("select * from " + ".category where id = ? and lang = ?");
         try
         {
-            PreparedStatement statement = AbstractDAO.connection().prepareStatement(sql.toString());
+            statement = AbstractDAO.connection().prepareStatement(sql.toString());
             statement.setLong(1, id);
             statement.setString(2, lang.getDbName());
             ResultSet res = statement.executeQuery();
@@ -87,7 +88,8 @@ public class CategoryDAO extends AbstractDAO<Category, Long>
         {
             try
             {
-                connection().close();
+                if (statement != null)
+                    statement.close();
             } catch (SQLException e)
             {
                 e.printStackTrace();
@@ -99,20 +101,20 @@ public class CategoryDAO extends AbstractDAO<Category, Long>
     @Override
     public void insert(Category category)
     {
-        StringBuilder sql = new StringBuilder();
+        PreparedStatement statement = null;
+                StringBuilder sql = new StringBuilder();
         sql.append("insert into category values(?, ?, ?)");
         try
         {
-            PreparedStatement statement = AbstractDAO.connection().prepareStatement(sql.toString());
+            statement = AbstractDAO.connection().prepareStatement(sql.toString());
             statement.setLong(1, category.getId());
-            statement.setString(2, category.getLib());
-            statement.setString(3, category.getLang());
+            statement.setString(2, category.getLang());
+            statement.setString(3, category.getLib());
             statement.executeUpdate();
         } catch (SQLException e)
         {
             e.printStackTrace();
-            try
-            {
+            try {
                 connection().rollback();
             } catch (SQLException e1)
             {
@@ -122,7 +124,8 @@ public class CategoryDAO extends AbstractDAO<Category, Long>
         {
             try
             {
-                connection().close();
+                if (statement != null)
+                    statement.close();
             } catch (SQLException e)
             {
                 e.printStackTrace();

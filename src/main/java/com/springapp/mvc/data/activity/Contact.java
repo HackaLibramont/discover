@@ -28,6 +28,8 @@ public class Contact
         this.phone = phone;
         this.website = website;
         this.email = email;
+        this.number = number;
+        this.address = address;
     }
 
     public Contact(long id, String firstName, String lastName, String phone, String website, String email, String number, String address){

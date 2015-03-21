@@ -65,7 +65,7 @@ public class CategoryNameDAO extends AbstractDAO<CategoryName, String> {
             ResultSet res = statement.executeQuery();
             if (res.next())
             {
-                result = new CategoryName(res.getString("id"), res.getLong("name"));
+                result = new CategoryName(res.getString("id"), res.getLong("val"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

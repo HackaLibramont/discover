@@ -39,9 +39,8 @@ public class XMLParser {
 
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
         Scanner keyboard = new Scanner(System.in);
-        System.out.print("path : ");
-        String path = keyboard.nextLine();
-        parse(path);
+        System.out.print("path : c:/Users/Nathan/Desktop/hackathon.xml");
+        parse("c:/Users/Nathan/Desktop/hackathon.xml");
     }
 
     public static void parse(String path) throws ParserConfigurationException, IOException, SAXException {
@@ -51,12 +50,11 @@ public class XMLParser {
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse(fXmlFile);
         doc.getDocumentElement().normalize();
-        NodeList offers = ((Element) doc.getChildNodes().item(0)).getElementsByTagName("offres");
-        System.out.println(offers);
+        NodeList offers = ((Element) doc.getChildNodes().item(0)).getElementsByTagName("offres").item(0).getChildNodes();
         for (int i = 0; i < offers.getLength(); i++) {
-            Node offer = offers.item(i).getFirstChild().getNextSibling();
 
-                System.out.println(offer.getLocalName());
+            try {
+                Node offer = offers.item(i);
                 Long id = Long.parseLong(((Element) offer).getAttribute("id"));
                 String media = null;
                 String categoryName = null;
@@ -65,18 +63,20 @@ public class XMLParser {
                 Map<String, String> categoryNames = new HashMap<String, String>();
                 for (int j = 0; j < ((Element) offer).getElementsByTagName("titre").getLength(); ++j) {
                     Element title = (Element) ((Element) offer).getElementsByTagName("titre").item(j);
-                    titles.put(title.getAttribute("lg"), title.getChildNodes().item(0).getNodeValue());
+                    if (title.getAttribute("lg") != null && !(title.getAttribute("lg").equals("")))
+                        titles.put(title.getAttribute("lg"), title.getChildNodes().item(0).getNodeValue());
                 }
                 Node descr = ((Element) ((Element) offer).getElementsByTagName("descriptions").item(0)).getElementsByTagName("description").item(0);
                 for (int j = 0; j < ((Element) descr).getElementsByTagName("texte").getLength(); ++j) {
                     Element text = (Element) ((Element) descr).getElementsByTagName("texte").item(j);
-                    descriptions.put(text.getAttribute("lg"), text.getChildNodes().item(0).getNodeValue());
+                    if (text.getAttribute("lg") != null && !(text.getAttribute("lg").equals("")))
+                        descriptions.put(text.getAttribute("lg"), text.getChildNodes().item(0).getNodeValue());
                 }
                 Node category = ((Element) ((Element) offer).getElementsByTagName("categories").item(0)).getElementsByTagName("categorie").item(0);
                 categoryName = ((Element) category).getAttribute("id");
                 for (int j = 0; j < ((Element) category).getElementsByTagName("lib").getLength(); ++j) {
                     Element lib = (Element) ((Element) category).getElementsByTagName("lib").item(j);
-                    if (lib.getAttribute("lg") != null)
+                    if (lib.getAttribute("lg") != null && !(lib.getAttribute("lg").equals("")))
                         categoryNames.put(lib.getAttribute("lg"), lib.getChildNodes().item(0).getNodeValue());
                 }
                 Element contact = (Element) ((Element) ((Element) offer).getElementsByTagName("contacts").item(0)).getElementsByTagName("contact").item(0);
@@ -88,48 +88,63 @@ public class XMLParser {
                 String cWebsite = null;
                 String cMail = null;
                 NodeList communications = contact.getElementsByTagName("communications");
-                for (int j = 0; j < communications.getLength(); ++j) {
-                    try {
-                        Element comm = (Element) communications.item(i).getFirstChild().getNextSibling();
-                        if (comm.getAttribute("typ").equals("tel"))
-                            cPhone = comm.getElementsByTagName("val").item(0).getChildNodes().item(0).getNodeValue();
-                        else if (comm.getAttribute("typ").equals("mail"))
-                            cMail = comm.getElementsByTagName("val").item(0).getChildNodes().item(0).getNodeValue();
-                        else if (comm.getAttribute("typ").equals("url"))
-                            cWebsite = comm.getElementsByTagName("val").item(0).getChildNodes().item(0).getNodeValue();
-                    } catch (NullPointerException e)
-                    {
-                        e.printStackTrace();
-                    }
+                for (int j = 0; j < communications.item(0).getChildNodes().getLength(); ++j) {
+                    Element comm = (Element) communications.item(0).getChildNodes().item(j);
+                    if (comm.getAttribute("typ").equals("tel"))
+                        cPhone = comm.getElementsByTagName("val").item(0).getChildNodes().item(0).getNodeValue();
+                    else if (comm.getAttribute("typ").equals("mail"))
+                        cMail = comm.getElementsByTagName("val").item(0).getChildNodes().item(0).getNodeValue();
+                    else if (comm.getAttribute("typ").equals("url"))
+                        cWebsite = comm.getElementsByTagName("val").item(0).getChildNodes().item(0).getNodeValue();
+
                 }
                 Element location = (Element) ((Element) ((Element) offer).getElementsByTagName("localisation").item(0)).getElementsByTagName("localite").item(0);
-                Long lId = Long.parseLong(location.getAttribute("id"));
-                String lName = location.getElementsByTagName("l_nom").item(0).getChildNodes().item(0).getNodeValue();
-                String lPostCode = location.getElementsByTagName("postal").item(0).getChildNodes().item(0).getNodeValue();
-                Double lX = Double.parseDouble(location.getElementsByTagName("x").item(0).getChildNodes().item(0).getNodeValue());
-                Double lY = Double.parseDouble(location.getElementsByTagName("y").item(0).getChildNodes().item(0).getNodeValue());
-                String lComName = location.getElementsByTagName("c_nom").item(0).getNodeValue();
-                media = ((Element) ((Element) ((Element) offer).getElementsByTagName("medias").item(0)).getElementsByTagName("media").item(0)).getElementsByTagName("url").item(0).getNodeValue();
+                Long lId = null;
+                String lName = null;
+                String lPostCode = null;
+                Double lX = null;
+                Double lY = null;
+                String lComName = null;
+                try {
+                    lId = Long.parseLong(location.getAttribute("id"));
+                    lName = location.getElementsByTagName("l_nom").item(0).getChildNodes().item(0).getNodeValue();
+                    lPostCode = location.getElementsByTagName("postal").item(0).getChildNodes().item(0).getNodeValue();
+                    lX = Double.parseDouble(location.getElementsByTagName("x").item(0).getChildNodes().item(0).getNodeValue());
+                    lY = Double.parseDouble(location.getElementsByTagName("y").item(0).getChildNodes().item(0).getNodeValue());
+                    lComName = location.getElementsByTagName("c_nom").item(0).getChildNodes().item(0).getNodeValue();
 
-            Contact contactObj = new Contact(++autoIncContact, cFirstName, cLastName, cPhone, cWebsite, cMail, cAdress, cNumber);
-            Location localiteObj = new Location(lId.longValue(), lName, lPostCode, lX.doubleValue(), lY.doubleValue(), lComName);
-            CategoryName categoryNameObj = XMLParser.catNameDAO.find(categoryName);
-            if (categoryName == null)
-            {
-                categoryNameObj = new CategoryName(categoryName, ++XMLParser.autoIncCategory);
-                XMLParser.catNameDAO.insert(categoryNameObj);
-            }
-            for (String lang : categoryNames.keySet()) {
-                Category categoryObj = new Category(XMLParser.autoIncCategory, categoryNames.get(lang), lang);
-                catDAO.insert(categoryObj);
-            }
-            XMLParser.ctctDAO.insert(contactObj);
-            XMLParser.localDAO.insert(localiteObj);
-            actDAO.insert(id, XMLParser.autoIncCategory, XMLParser.autoIncContact, media, lId);
-            Long actId = ++autoIncActivity;
-            for (String lang : titles.keySet())
-                actLabelDAO.insert(actId, lang, id, titles.get(lang), descriptions.get(lang));
+                    media = ((Element) ((Element) ((Element) offer).getElementsByTagName("medias").item(0)).getElementsByTagName("media").item(0)).getElementsByTagName("url").item(0).getChildNodes().item(0).getNodeValue();
+                } catch (NullPointerException e) {
 
+                }
+
+                Contact contactObj = new Contact(++autoIncContact, cFirstName, cLastName, cPhone, cWebsite, cMail, cNumber, cAdress);
+
+                if (lId != null) {
+                    Location localiteObj = XMLParser.localDAO.find(lId);
+                    if (localiteObj == null) {
+                        localiteObj = new Location(lId.longValue(), lName, lPostCode, lX.doubleValue(), lY.doubleValue(), lComName);
+                        XMLParser.localDAO.insert(localiteObj);
+                    }
+                }
+                CategoryName categoryNameObj = XMLParser.catNameDAO.find(categoryName);
+                if (categoryNameObj == null) {
+                    categoryNameObj = new CategoryName(categoryName, ++XMLParser.autoIncCategory);
+                    XMLParser.catNameDAO.insert(categoryNameObj);
+                    for (String lang : categoryNames.keySet()) {
+                        Category categoryObj = new Category(XMLParser.autoIncCategory, categoryNames.get(lang), lang);
+                        catDAO.insert(categoryObj);
+                    }
+                }
+                XMLParser.ctctDAO.insert(contactObj);
+                actDAO.insert(id, XMLParser.autoIncCategory, XMLParser.autoIncContact, media, lId);
+                Long actId = ++autoIncActivity;
+                for (String lang : titles.keySet())
+                    actLabelDAO.insert(actId, lang, id, titles.get(lang), descriptions.get(lang));
+                System.out.println("added " + i);
+            } catch (NullPointerException e) {
+                System.out.println("null " + i + " "  + e.getCause());
+            }
         }
     }
 }

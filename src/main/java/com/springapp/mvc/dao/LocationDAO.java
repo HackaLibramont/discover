@@ -62,21 +62,15 @@ public class LocationDAO extends AbstractDAO<Location, Long>
     @Override
     public Location find(Long id)
     {
-        return find(id, LANG.find(null));
-    }
 
-    @Override
-    public Location find(Long id, LANG lang)
-    {
         PreparedStatement statement = null;
-                Location result = null;
+        Location result = null;
         StringBuilder sql = new StringBuilder();
-        sql.append("select * from " + ".location where id = ? and lang = ?");
+        sql.append("select * from location where id = ?");
         try
         {
             statement = AbstractDAO.connection().prepareStatement(sql.toString());
             statement.setLong(1, id);
-            statement.setString(2, lang.getDbName());
             ResultSet res = statement.executeQuery();
             if (res.next())
             {
@@ -104,6 +98,12 @@ public class LocationDAO extends AbstractDAO<Location, Long>
             }
         }
         return result;
+    }
+
+    @Override
+    public Location find(Long id, LANG lang)
+    {
+        return this.find(id);
     }
 
     @Override

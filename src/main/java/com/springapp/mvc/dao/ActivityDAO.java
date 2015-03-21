@@ -81,11 +81,12 @@ public class ActivityDAO extends AbstractDAO<Activity, Long>{
 
     public void insert(Long id, Long categorie, Long contact, String media, Long location)
     {
-        StringBuilder sql = new StringBuilder();
+        PreparedStatement statement = null;
+                StringBuilder sql = new StringBuilder();
         sql.append("insert into activity values(?, ?, ?, ?, ?)");
         try
         {
-            PreparedStatement statement = AbstractDAO.connection().prepareStatement(sql.toString());
+            statement = AbstractDAO.connection().prepareStatement(sql.toString());
             statement.setLong(1, id);
             statement.setLong(2, categorie);
             statement.setLong(3, contact);
@@ -106,7 +107,8 @@ public class ActivityDAO extends AbstractDAO<Activity, Long>{
         {
             try
             {
-                connection().close();
+                if (statement != null)
+                    statement.close();
             } catch (SQLException e)
             {
                 e.printStackTrace();
