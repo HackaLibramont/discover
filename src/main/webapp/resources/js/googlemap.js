@@ -6,10 +6,20 @@ var currentWindow;
 var markers = [];
 
 function initialize() {
+
+    var styles =[{"featureType":"administrative","elementType":"all","stylers":[{"visibility":"on"},{"lightness":33}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2e5d4"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#c5dac6"}]},{"featureType":"poi.park","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":20}]},{"featureType":"road","elementType":"all","stylers":[{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#c5c6c6"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#e4d7c6"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#fbfaf7"}]},{"featureType":"water","elementType":"all","stylers":[{"visibility":"on"},{"color":"#acbcc9"}]}];
+
+    var styledMap = new google.maps.StyledMapType(styles,
+        {name: "Styled Map"});
+
     var mapOptions = {
         center: { lat: -34.397, lng: 150.644},
         zoom: 8
     }
+
+    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    map.mapTypes.set('map_style', styledMap);
+    map.setMapTypeId('map_style');
 
     currentWindow = null;
     markers = [];
@@ -20,30 +30,6 @@ function initialize() {
         origin1,
         destinationB
     ];
-
-/*
-    var service = new google.maps.DistanceMatrixService();
-    service.getDistanceMatrix(
-        {
-            origins: [origin1],
-            destinations: [destinationB],
-            travelMode: google.maps.TravelMode.DRIVING,
-            unitSystem: google.maps.UnitSystem.METRIC,
-            durationInTraffic: false,
-            avoidHighways: false,
-            avoidTolls: false
-        }, callback);
-
-    var flightPath = new google.maps.Polyline({
-        path: flightPlanCoordinates,
-        geodesic: true,
-        strokeColor: '#FF0000',
-        strokeOpacity: 1.0,
-        strokeWeight: 2
-    }); */
-
-   /* map = new google.maps.Map(document.getElementById('map-canvas'),
-        mapOptions); */
 
     proximityMap(
         ["55.930385","-3.118425"],
@@ -93,12 +79,6 @@ function proximityMap(actualLocalisation,tabLocations)
 {
     var eltBound = 0;
     var actualLoc = new google.maps.LatLng(actualLocalisation[0],actualLocalisation[1]);
-    var mapOptions = {
-        center: actualLoc,
-        zoom: 8
-    };
-
-    map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
 
     // current position marker
     var CurrentPositionMarker = new google.maps.Marker({
@@ -140,12 +120,6 @@ function routingMap(actualLocalisation,tabLocations)
 {
     var eltBound = 0;
     var actualLoc = new google.maps.LatLng(actualLocalisation[0],actualLocalisation[1]);
-    var mapOptions = {
-        center: actualLoc,
-        zoom: 8
-    };
-
-    map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
     var flightPlanCoordinates = [];
 
     // current position marker
