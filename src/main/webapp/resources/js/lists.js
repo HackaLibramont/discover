@@ -21,11 +21,11 @@ function setCursorPosition(latitude, longitude){
 function findActivitiesAround(e)
 {
     e.preventDefault();
-    var checks;
-   /* for (var i in $(["class^=filterCheckbox").(":checked"))
-    {
-
-    }*/
+    var checks = null;
+    $('#checkboxes input:checked').each(function() {
+        console.log($(this));
+        checks.push($(this).val());
+    });
     var lat = $("#userLatitude1").val();
     var long = $("#userLongitude1").val();
     var dist = $("#userDistance1").val();
@@ -38,7 +38,8 @@ function findActivitiesAround(e)
         data : JSON.stringify({
             latitude:lat,
             longitude:long,
-            maxTravelDistance:dist
+            maxTravelDistance:dist,
+            checkedCategories:checks
         })
     }).done(function( data ){
         //console.log( "Sample of data:", data.slice( 0, 100 ) );
