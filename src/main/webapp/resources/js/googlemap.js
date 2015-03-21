@@ -13,8 +13,8 @@ function initialize() {
         {name: "Styled Map"});
 
     var mapOptions = {
-        center: { lat: -34.397, lng: 150.644},
-        zoom: 8
+        center: { lat: 49.9274427, lng: 5.3813976},
+        zoom: 5
     };
 
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
