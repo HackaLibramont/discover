@@ -28,7 +28,7 @@
 </head>
 <body>
     <div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm">
-        <a class="navmenu-brand visible-md visible-lg" href="#"><img src="<c:url value="/resources/img/logo.png"/>">></a>
+        <a class="navmenu-brand visible-md visible-lg" href="#"><img src="<c:url value="/resources/img/logo.png"/>"></a>
 
         <div class="container">
 
@@ -36,10 +36,10 @@
                 <div class="col-md-3 col-sm-3">
                     <div class="tabs-left">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#a" data-toggle="tab"><img src="<c:url value="/resources/img/menu_accueil_couleur.png"/>"> class="smallerLogo"></a></li>
-                            <li><a href="#b" data-toggle="tab"><img src="img/menu_connexion_couleur.png" onmouseover="hover(this)" onmouseout="unhover(this)" class="smallerLogo"></a></li>
-                            <li><a href="#c" data-toggle="tab"><img src="img/menu_alentours_couleur.png" class="smallerLogo"></a></li>
-                            <li><a href="#d" data-toggle="tab"><img src="img/menu_itineraire_couleur.png" class="smallerLogo"></a></li>
+                            <li class="active"><a href="#a" data-toggle="tab"><img src="<c:url value="/resources/img/menu_accueil_couleur.png"/>" class="smallerLogo"></a></li>
+                            <li><a href="#b" data-toggle="tab"><img src="<c:url value="/resources/img/menu_connexion_couleur.png"/>" onmouseover="hover(this)" onmouseout="unhover(this)" class="smallerLogo"></a></li>
+                            <li><a href="#c" data-toggle="tab"><img src="<c:url value="/resources/img/menu_alentours_couleur.png"/>" class="smallerLogo"></a></li>
+                            <li><a href="#d" data-toggle="tab"><img src="<c:url value="/resources/img/menu_itineraire_couleur.png"/>" class="smallerLogo"></a></li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane textContent homeContent active" id="a">
@@ -55,30 +55,30 @@
                                 <h3 class="connectionLabels">Mot de passe</h3>
                                 <input type="password" class="inputMenu" name="userPassword">
                                 <a href="">
-                                    <img src="img/start.png" alt="Se connecter" class="submitButton">
+                                    <img src="<c:url value="/resources/img/start.png"/>" alt="Se connecter" class="submitButton">
                                 </a>
                                 <p class="subscriptionButton">S'inscrire</p>
                             </div>
                             <div class="tab-pane textContent alentoursContent" id="c">
-                                <img src="img/position.png" class="positionImage">
+                                <img src="<c:url value="/resources/img/position.png"/>" class="positionImage">
                                 <h3>Départ</h3>
                                 <input type="text" class="inputMenu" name="userPosition">
                         <span>
                             <span class="hoursLetter">Durée : </span>
                             <input type="text" class="inputMenu inputHours" name="userHours" width="30px">
-                            <img src="img/time.png" class="hoursImage">
+                            <img src="<c:url value="/resources/img/time.png"/>" class="hoursImage">
                         </span>
                                 <a href="">
-                                    <img src="img/start.png" alt="Voir les poins d'interêt" class="submitButton">
+                                    <img src="<c:url value="/resources/img/start.png"/>" alt="Voir les poins d'interêt" class="submitButton">
                                 </a>
 
 
                             </div>
                             <div class="tab-pane textContent itineraireContent" id="d">
-                                <img src="img/position.png" class="positionImage">
+                                <img src="<c:url value="/resources/img/position.png"/>" class="positionImage">
                                 <h3>Départ</h3>
                                 <input type="text" class="inputMenu" name="userPosition">
-                                <img src="img/position.png" class="positionImage">
+                                <img src="<c:url value="/resources/img/position.png"/>" class="positionImage">
                                 <h3>Destination</h3>
                                 <input type="text" class="inputMenu" name="userDestination">
 
@@ -86,10 +86,10 @@
                         <span>
                             <span class="hoursLetter">Durée : </span>
                             <input type="text" class="inputMenu inputHours" name="userHours" width="30px">
-                            <img src="img/time.png" class="hoursImage">
+                            <img src="<c:url value="/resources/img/time.png"/>" class="hoursImage">
                         </span>
                                 <a href="">
-                                    <img src="img/start.png" alt="Voir l'itinéraire" class="submitButton">
+                                    <img src="<c:url value="/resources/img/start.png"/>" alt="Voir l'itinéraire" class="submitButton">
                                 </a>
 
                             </div>
@@ -107,7 +107,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><img src="img/logo.png" class="smallLogo"></a>
+        <a class="navbar-brand" href="#"><img src="<c:url value="/resources/img/logo.png"/>" class="smallLogo"></a>
     </div>
 
     <div id="map-canvas"></div>
