@@ -82,9 +82,9 @@ function proximityMap(actualLocalisation,tabLocations)
 
     // current position marker
     var CurrentPositionMarker = new google.maps.Marker({
-        icon: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png",
+        icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
         position: actualLoc,
-        title:""
+        title:"You are here"
     });
     markers.push(CurrentPositionMarker);
     CurrentPositionMarker.setMap(map);
@@ -98,16 +98,14 @@ function proximityMap(actualLocalisation,tabLocations)
     var tabLatLng = [];
     for(var i = 0; i < tabLocations.length; i++)
     {
-        tabLatLng.push(new google.maps.LatLng(tabLocations[i][0],tabLocations[i][1]));
-        bounds.extend(new google.maps.LatLng(tabLocations[i][0],tabLocations[i][1]));
+        tabLatLng.push(new google.maps.LatLng(tabLocations[i].geoX,tabLocations[i].geoY));
+        bounds.extend(new google.maps.LatLng(tabLocations[i].geoX,tabLocations[i].geoY));
         eltBound++;
     }
 
-    var service = new google.maps.DistanceMatrixService();
-
     for(var i = 0; i < tabLatLng.length; i++)
     {
-        markers.push(createMarker(tabLatLng[i]));
+        markers.push(createMarker(tabLatLng[i],tabLocations[i]));
     }
 
     var markerCluster = new MarkerClusterer(map, markers);
@@ -124,9 +122,9 @@ function routingMap(actualLocalisation,tabLocations)
 
     // current position marker
     var CurrentPositionMarker = new google.maps.Marker({
-        icon: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png",
+        icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
         position: actualLoc,
-        title:""
+        title:"You are here"
     });
     CurrentPositionMarker.setMap(map);
     markers.push(CurrentPositionMarker);
@@ -171,10 +169,10 @@ function routingMap(actualLocalisation,tabLocations)
         map.fitBounds(bounds);
 }
 
-function createMarker(latLng)
+function createMarker(latLng,tabLocation)
 {
     var marker = new google.maps.Marker({
-        icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+        icon: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png",
         position: latLng,
         title:""
     });
@@ -182,24 +180,15 @@ function createMarker(latLng)
     var statement = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h1 id="firstHeading" class="firstHeading">Nom activité</h1>'+
-        '<h2 id="firstHeading" class="firstHeading">Type</h2>'+
+        '<h1 id="firstHeading" class="firstHeading">'+ tabLocation.name +'</h1>'+
+        '<h2 id="firstHeading" class="firstHeading">'+ tabLocation.location.name+'</h2>'+
         '<div id="bodyContent">'+
-        '<p><b>Totre</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-        'sandstone rock formation in the southern part of the '+
-        'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-        'south west of the nearest large town, Alice Springs; 450&#160;km '+
-        '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-        'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-        'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-        'Aboriginal people of the area. It has many springs, waterholes, '+
-        'rock caves and ancient paintings. Uluru is listed as a World '+
-        'Heritage Site.</p>'+
-        '<p><b>3 rue chants doiseaux, 6791, Athus </b></p>' +
+        '<p>'+ tabLocation.description+'</p>'+
+        '<p><b>'+ tabLocation.mainContact.number + ' ' + tabLocation.mainContact.address +'</b></p>' +
         '<h4>Contact :</h4>'+
-        '<p><a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-        'https://en.wikipedia.org/w/index.php?title=Uluru</a></p> ' +
-        '<p>azerty.7789@hotmail.com</p>'+
+        '<p><a href="'+ tabLocation.mainContact.website+'">'
+        + tabLocation.mainContact.website +'</a></p> ' +
+        '<p>'+  +'</p>'+
         '<p>+352 691 678 496</p>' +
         '</div>'+
         '</div>';
