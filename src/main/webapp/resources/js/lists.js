@@ -11,12 +11,14 @@ function testGet(){
 }
 
 function setCursorPosition(latitude, longitude){
+    console.log(latitude);
     $("#userLatitude1").text(latitude);
-    $("#userLongitude1").val(longitude);
+    $("#userLongitude1").text(longitude);
 }
 
-function findActivitesAround()
+function findActivitesAround(e)
 {
+    e.preventDefault();
     var checks;
    /* for (var i in $(["class^=filterCheckbox").(":checked"))
     {

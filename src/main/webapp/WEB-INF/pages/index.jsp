@@ -110,6 +110,7 @@
 <script src="<c:url value="/resources/lib/jquery/jquery-1.11.2.min.js" />"></script>
 <script src="<c:url value="/resources/lib/bootstrap-3.3.4-dist/js/bootstrap.min.js" />"></script>
 <script src="<c:url value="/resources/lib/jasny-bootstrap/js/jasny-bootstrap.min.js" />"></script>
+<script src="<c:url value="/resources/lib/markerclusterer/markerclusterer.js" />"></script>
 <script src="<c:url value="/resources/js/tab.js"/>"></script>
 <script src="<c:url value="/resources/js/lists.js"/>"></script>
 <script src="<c:url value="/resources/js/googlemap.js"/>"></script>

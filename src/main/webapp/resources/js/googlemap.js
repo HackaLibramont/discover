@@ -65,6 +65,7 @@ window.addEventListener("resize", function (event) {
         map.fitBounds(bounds);
 });
 google.maps.event.addListener(map, 'click', function(event) {
+    alert("bite");
     setCursorPosition(event.latLng.lat(), event.latLng.lng());
 });
 
