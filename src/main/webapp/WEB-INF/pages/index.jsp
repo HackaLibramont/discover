@@ -55,10 +55,10 @@
                             </div>
 
                             <div class="tab-pane textContent alentoursContent" id="c">
-                                <table style="width:95%; color:white;">
+                                <table style="width:200px; color:white;">
                                     <tr>
                                         <td colspan='3'>Départ</td>
-                                        <td><img  style='width:32px;' src="<c:url value="/resources/img/position.png"/>"/></td>
+                                        <td style="text-align:right;"><img  style='width:32px;' src="<c:url value="/resources/img/position.png"/>"/></td>
                                     </tr>
                                     <tr>
                                         <td colspan='3' style="text-align:right;"><input style="height:30px;" type="text" class="inputMenu" name="userLongitude" id="userLongitude1"></td>
@@ -70,7 +70,7 @@
                                     </tr>
                                     <tr style="padding-top:5px;">
                                         <td colspan='2'>Distance</td>
-                                        <td style="text-align:right;"><input style="height:30px; width:56px;" type="text" class="inputMenu" name="userDistance" id="userDistance"></td>
+                                        <td style="text-align:right;"><input style="height:30px; width:56px;" type="text" class="inputMenu" name="userDistance" id="userDistance1"></td>
                                         <td style="text-align:center;">m</td>
                                     </tr>
                                     <tr>
@@ -83,7 +83,7 @@
                                         <td title="Patrimoine"><input type="checkbox" name="" value="5"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_musee_blanc.png"/>"/></td>
                                         <td title="Production"><input type="checkbox" name="" value="6"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_restaurant_blanc.png"/>"/></td>
                                         <td title="Evénement"><input type="checkbox" name="" value="7"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_event_blanc.png"/>"/></td>
-                                        <td title="Trouver des activités"><img style='width:32px; cursor:pointer;' src="<c:url value="/resources/img/activities_start.png"/>" alt="Voir les poins d'interêt" class="submitButton" onclick="findActivitiesAround(event)"></td>
+                                        <td title="Trouver des activités" style="text-align:right;"><img style='width:32px; cursor:pointer;' src="<c:url value="/resources/img/activities_start.png"/>" alt="Voir les poins d'interêt" class="submitButton" onclick="findActivitiesAround(event)"></td>
                                     </tr>
                                 </table>
                             </div>
