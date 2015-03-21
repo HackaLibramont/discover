@@ -7,9 +7,9 @@ import java.sql.Timestamp;
  */
 public class Visit extends Activity
 {
-    public Visit(String name, Location location, Contact mainContact)
+    public Visit(String name, Location location, Contact mainContact, Double geoX, Double geoY)
     {
-        super(name, location, mainContact);
+        super(name, location, mainContact, geoX, geoY);
     }
 
     @Override

@@ -11,13 +11,17 @@ public abstract class Activity
     private Long Id;
     private String name;
     private final Location location;
+    private final Double geoX;
+    private final Double geoY;
     private String description;
     private final Contact mainContact;
 
-    public Activity(String n, Location location, Contact mainContact) {
+    public Activity(String n, Location location, Contact mainContact, Double geoX, Double geoY) {
         name = n;
         this.location = location;
         this.mainContact = mainContact;
+        this.geoX = geoX;
+        this.geoY = geoY;
     }
 
     public void setDescription(String d) {
@@ -69,4 +73,11 @@ public abstract class Activity
         return this.location.getId();
     }
 
+    public Double getGeoX() {
+        return geoX;
+    }
+
+    public Double getGeoY() {
+        return geoY;
+    }
 }

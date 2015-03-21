@@ -7,9 +7,9 @@ import java.sql.Timestamp;
  */
 public class Accomodation extends Activity
 {
-    public Accomodation(String name, Location location, Contact mainContact)
+    public Accomodation(String name, Location location, Contact mainContact, Double geoX, Double geoY)
     {
-        super(name, location, mainContact);
+        super(name, location, mainContact, geoX, geoY);
     }
 
     public Timestamp getStart()

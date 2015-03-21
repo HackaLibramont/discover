@@ -103,13 +103,14 @@ public class CategoryDAO extends AbstractDAO<Category, Long>
     {
         PreparedStatement statement = null;
                 StringBuilder sql = new StringBuilder();
-        sql.append("insert into category values(?, ?, ?)");
+        sql.append("insert into category values(?, ?, ?, ?)");
         try
         {
             statement = AbstractDAO.connection().prepareStatement(sql.toString());
             statement.setLong(1, category.getId());
             statement.setString(2, category.getLang());
             statement.setString(3, category.getLib());
+            statement.setString(4, null);
             statement.executeUpdate();
         } catch (SQLException e)
         {

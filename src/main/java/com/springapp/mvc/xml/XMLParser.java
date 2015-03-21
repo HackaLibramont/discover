@@ -56,6 +56,8 @@ public class XMLParser {
             try {
                 Node offer = offers.item(i);
                 Long id = Long.parseLong(((Element) offer).getAttribute("id"));
+                Double geoX = Double.parseDouble(((Element) ((Element) ((Element) offer).getElementsByTagName("geocodes").item(0)).getElementsByTagName("geocode").item(0)).getElementsByTagName("x").item(0).getChildNodes().item(0).getNodeValue());
+                Double geoY = Double.parseDouble(((Element) ((Element) ((Element) offer).getElementsByTagName("geocodes").item(0)).getElementsByTagName("geocode").item(0)).getElementsByTagName("y").item(0).getChildNodes().item(0).getNodeValue());
                 String media = null;
                 String categoryName = null;
                 Map<String, String> titles = new HashMap<String, String>();
@@ -170,7 +172,7 @@ public class XMLParser {
                 Contact contactObj = new Contact(++autoIncContact, cFirstName, cLastName, cPhone, cWebsite, cMail, cNumber, cAdress);
 
                 XMLParser.ctctDAO.insert(contactObj);
-                actDAO.insert(id, XMLParser.autoIncCategory, XMLParser.autoIncContact, media, lId);
+                actDAO.insert(id, XMLParser.autoIncCategory, XMLParser.autoIncContact, media, lId, geoX, geoY);
                 Long actId = ++autoIncActivity;
                 for (String lang : titles.keySet())
                     actLabelDAO.insert(actId, lang, id, titles.get(lang), descriptions.get(lang));

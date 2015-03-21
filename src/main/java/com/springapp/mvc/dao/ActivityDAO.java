@@ -79,19 +79,21 @@ public class ActivityDAO extends AbstractDAO<Activity, Long>{
         return null;
     }
 
-    public void insert(Long id, Long categorie, Long contact, String media, Long location)
+    public void insert(Long id, Long categorie, Long contact, String media, Long location, Double geoX, Double geoY)
     {
         PreparedStatement statement = null;
                 StringBuilder sql = new StringBuilder();
-        sql.append("insert into activity values(?, ?, ?, ?, ?)");
+        sql.append("insert into activity values(?, ?, ?, ?, ?, ?, ?)");
         try
         {
             statement = AbstractDAO.connection().prepareStatement(sql.toString());
             statement.setLong(1, id);
             statement.setLong(2, categorie);
             statement.setLong(3, contact);
-            statement.setString(4,media);
+            statement.setString(4, media);
             statement.setLong(5, location);
+            statement.setDouble(6, geoX);
+            statement.setDouble(7, geoY);
             statement.executeUpdate();
         } catch (SQLException e)
         {

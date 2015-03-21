@@ -10,9 +10,9 @@ public class Eating extends Activity
     private Timestamp start;
     private Timestamp end;
 
-    public Eating(String name, Location location, Contact mainContact, Timestamp start, Timestamp end)
+    public Eating(String name, Location location, Contact mainContact, Timestamp start, Timestamp end, Double geoX, Double geoY)
     {
-        super(name, location, mainContact);
+        super(name, location, mainContact, geoX, geoY);
         this.start = start;
         this.end = end;
     }
