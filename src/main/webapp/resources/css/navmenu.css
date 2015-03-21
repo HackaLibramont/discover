@@ -43,6 +43,7 @@ body {
         padding: 0 0 0 300px;
     }
     .navmenu {
+        width:300px;
         padding-top: 0;
     }
     .navbar {
@@ -78,7 +79,7 @@ li {
     color: #412;
 }
 
-.active .glyphicon {
+    .active .glyphicon {
     color: #657;
 }
 }
@@ -90,13 +91,11 @@ li {
 
 .tab-content {
     margin-left: 65px;
-    width: 100%;
+    width: 234px;
 
     .tab-pane {
         display: none;
         background-color: #fff;
-        padding: 1.6rem;
-        overflow-y: auto;
     }
 
     .active { display: block; }
@@ -189,6 +188,7 @@ li {
     vertical-align: middle;
     line-height: 30px;
 }
+
 .submitButton{
     float: right;
 }
@@ -203,7 +203,7 @@ li {
     margin-left:15px;
     line-height: 30px;
 }
-#connexion{
+.menu-box{
     height:30px;
     margin-top:15px;
     padding-left:5px;
@@ -213,17 +213,32 @@ li {
 .positionImage{
     float: right;
     width: 35px;
+    margin-right:30px;
 }
-.inputHours{
-    width: 40px;
-    height: 40px;
-    display: inline-block;
+.image_language{
+    margin-top:5px;
+    padding:5px;
+    width:55px;
 }
-.hoursImage{
-    width: 40px;
-    display: inline-block;
-    float: right;
+#language{
+    padding:10px;
 }
-.hoursLetter{
-    font-size: 1.5em;
+#language ul{
+    list-style: none;
+    display:block;
+}
+#language li{
+    float:left;
+    padding:5px;
+}
+#icone_partage{
+    padding:5px;
+}
+#icone_partage ul{
+    list-style: none;
+    display:block;
+}
+#icone_partage li{
+    float:left;
+    padding:5px;
 }
