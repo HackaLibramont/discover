@@ -27,8 +27,9 @@ public class ActivityDAO extends AbstractDAO<Activity, Long>{
         List<Activity> result = new ArrayList<Activity>();
         StringBuilder sql = new StringBuilder();
         sql.append("select * from category");
+        PreparedStatement statement = null;
         try {
-            PreparedStatement statement = AbstractDAO.connection().prepareStatement(sql.toString());
+            statement = AbstractDAO.connection().prepareStatement(sql.toString());
             ResultSet res = statement.executeQuery();
             while (res.next())
             {
@@ -40,18 +41,14 @@ public class ActivityDAO extends AbstractDAO<Activity, Long>{
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            try {
-                connection().rollback();
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
         }
         finally
         {
             try {
-                connection().close();
-            } catch (SQLException e) {
-                e.printStackTrace();
+                if (statement != null)
+                    statement.close();
+            } catch (SQLException sqlEx) {
+                sqlEx.printStackTrace();
             }
         }
         return result;

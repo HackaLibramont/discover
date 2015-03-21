@@ -20,9 +20,10 @@ public class CategoryDAO extends AbstractDAO<Category, Long>
         List<Category> result = new ArrayList<Category>();
         StringBuilder sql = new StringBuilder();
         sql.append("select * from category");
+        PreparedStatement statement = null;
         try
         {
-            PreparedStatement statement = AbstractDAO.connection().prepareStatement(sql.toString());
+            statement = AbstractDAO.connection().prepareStatement(sql.toString());
             ResultSet res = statement.executeQuery();
             while (res.next())
             {
@@ -31,21 +32,14 @@ public class CategoryDAO extends AbstractDAO<Category, Long>
         } catch (SQLException e)
         {
             e.printStackTrace();
-            try
-            {
-                connection().rollback();
-            } catch (SQLException e1)
-            {
-                e1.printStackTrace();
-            }
-        } finally
+        }
+        finally
         {
-            try
-            {
-                connection().close();
-            } catch (SQLException e)
-            {
-                e.printStackTrace();
+            try {
+                if (statement != null)
+                    statement.close();
+            } catch (SQLException sqlEx) {
+                sqlEx.printStackTrace();
             }
         }
         return result;

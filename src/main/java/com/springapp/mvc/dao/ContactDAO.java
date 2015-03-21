@@ -30,7 +30,6 @@ public class ContactDAO extends AbstractDAO<Contact, Long> {
             } catch (SQLException sqlEx) {
                 sqlEx.printStackTrace();
             }
-
         }
         return contacts;
     }
