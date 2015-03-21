@@ -15,7 +15,7 @@ function initialize() {
     var mapOptions = {
         center: { lat: -34.397, lng: 150.644},
         zoom: 8
-    }
+    };
 
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
     map.mapTypes.set('map_style', styledMap);
@@ -37,6 +37,10 @@ function initialize() {
             ["50.087692","14.421150"],
             ["55.930385","14.421150"]
         ]);
+
+    google.maps.event.addListener(map, 'click', function(event) {
+        setCursorPosition(event.latLng.lat(), event.latLng.lng());
+    });
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 window.addEventListener("resize", function (event) {
@@ -50,9 +54,7 @@ window.addEventListener("resize", function (event) {
     if(eltBound > 1)
         map.fitBounds(bounds);
 });
-google.maps.event.addListener(map, 'click', function(event) {
-    setCursorPosition(event.latLng.lat(), event.latLng.lng());
-});
+
 
 function callback(response, status) {
     tabResult = [];

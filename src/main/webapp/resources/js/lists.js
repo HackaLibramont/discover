@@ -10,21 +10,36 @@ function testGet(){
     });
 }
 
+function setCursorPosition(latitude, longitude){
+    console.log(latitude);
+    $("#userLatitude1").val(latitude);
+    $("#userLongitude1").val(longitude);
+}
 
-function findActivitesAround()
+function findActivitiesAround(e)
 {
+    e.preventDefault();
     var checks;
-    for (var i : $(["class^=filterCheckbox").(":checked"))
+   /* for (var i in $(["class^=filterCheckbox").(":checked"))
     {
 
-    }
-    var lat = $("#userLatitude").val();
-    var long = $("#userLongitude").val();
-    var dist = $("#userDistance").val();
-    $.ajax(
-        url: "/entries",
-        data : {latitude:lat, longitude:long, distance:dist, }
-    ).done(data) {
+    }*/
+    var lat = $("#userLatitude1").val();
+    var long = $("#userLongitude1").val();
+    var dist = $("#userDistance1").val()*1000;
 
-    }
+    $.ajax({
+        url: "/activities",
+        dataType: "json",
+        method: "POST",
+        contentType: "application/json; charset=utf-8",
+        data : JSON.stringify({
+            latitude:lat,
+            longitude:long,
+            maxTravelDistance:dist
+        })
+    }).done(function( data ){
+        //console.log( "Sample of data:", data.slice( 0, 100 ) );
+
+    });
 }

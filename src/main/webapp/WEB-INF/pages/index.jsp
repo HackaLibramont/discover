@@ -17,15 +17,6 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.vertical-tabs.css" />">
     <link rel="icon" type="image/png" href="<c:url value="/resources/img/logo_onglet.png"/>" />
 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <script src="<c:url value="/resources/lib/markerclusterer/markerclusterer.js"/>"></script>
-    <script src="<c:url value="/resources/js/googlemap.js"/>"></script>
-    <script src="<c:url value="/resources/lib/jquery/jquery-1.11.2.min.js" />"></script>
-    <script src="<c:url value="/resources/lib/bootstrap-3.3.4-dist/js/bootstrap.min.js" />"></script>
-    <script src="<c:url value="/resources/lib/jasny-bootstrap/js/jasny-bootstrap.min.js" />"></script>
-    <script src="<c:url value="/resources/js/tab.js"/>"></script>
-
-
 </head>
 <body>
     <div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm">
@@ -66,40 +57,50 @@
                             <div class="tab-pane textContent alentoursContent" id="c">
                                 <img src="<c:url value="/resources/img/position.png"/>" class="positionImage">
                                 <p class="labels">Départ</p>
-                                <input type="text" class="inputMenu" name="userLongitude" id="userLongitude">
-                                <input type="text" class="inputMenu" name="userLatitude" id="userLatitude">
-                                      <span>
+                                <input type="text" class="inputMenu" name="userLongitude" id="userLongitude1">
+                                <input type="text" class="inputMenu" name="userLatitude" id="userLatitude1">
+                                    <span>
                                         <span class="hoursLetter">Distance : </span>
-                                        <input type="text" class="inputMenu inputHours" name="userDistance" id="userDistance" width="30px">
-                                        <img src="<c:url value="/resources/img/time.png"/>" class="hoursImage">
+                                        <input type="text" class="inputMenu inputHours" name="userDistance" id="userDistance1" width="30px">
                                     </span>
-                                <a href="">
-                                    <img src="<c:url value="/resources/img/start.png"/>" alt="Voir les poins d'interêt" class="submitButton" onclick="findActivitiesAround()">
-                                </a>
-
-
+                                <div class="menu-box">
+                                    <a href="#">
+                                        <img src="<c:url value="/resources/img/start.png"/>" alt="Voir les poins d'interêt" class="submitButton" onclick="findActivitiesAround(event)">
+                                    </a>
+                                </div>
                             </div>
                             <div class="tab-pane textContent itineraireContent" id="d">
                                 <img src="<c:url value="/resources/img/position.png"/>" class="positionImage">
                                 <p class="labels">Départ</p>
-                                <input type="text" class="inputMenu" name="userPosition">
-                                <img src="<c:url value="/resources/img/position.png"/>" class="positionImage">
-
-
-                        <span>
-                            <p class="labels">Durée : </p>
-                            <input type="text" class="inputMenu inputHours" name="userHours" width="30px">
-                            <img src="<c:url value="/resources/img/time.png"/>" class="hoursImage">
-                        </span>
-                                <a href="">
-                                    <img src="<c:url value="/resources/img/start.png"/>" alt="Voir l'itinéraire" class="submitButton">
-                                </a>
-
+                                <input type="text" class="inputMenu" name="userPosition" id="userLongitude2">
+                                <input type="text" class="inputMenu" name="userPosition" id="userLatitude2">
+                                <p class="labels">Distance</p>
+                                <input type="text" class="inputMenu inputHours" name="userDistance" id="userDistance2" width="30px">
+                                <div class="menu-box">
+                                    <a href="#">
+                                        <img src="<c:url value="/resources/img/start.png"/>" alt="Voir les poins d'interêt" class="submitButton">
+                                    </a>
+                                </div>
                             </div>
 
                         </div><!-- /tab-content -->
                     </div><!-- /tabbable -->
             </div><!-- /row -->
+                <div id="language">
+                    <ul>
+                        <li><img src="<c:url value="/resources/img/francais.png"/>" alt="Français" class="submitButton"></li>
+                        <li><img src="<c:url value="/resources/img/anglais.png"/>" alt="Anglais" class="submitButton"></li>
+                        <li><img src="<c:url value="/resources/img/allemand.png"/>" alt="Allemand" class="submitButton"></li>
+                        <li><img src="<c:url value="/resources/img/neerlandais.png"/>" alt="Néerlandais" class="submitButton"></li>
+                    </ul>
+                </div>
+                <div id="icone_partage">
+                    <ul>
+                    <li><img src="<c:url value="/resources/img/twitter.png" />" alt="Twitter" class="image_language"></li>
+                    <li><img src="<c:url value="/resources/img/facebook.png"/>" alt="Facebook" class="image_language"></li>
+                    <li><img src="<c:url value="/resources/img/gplus.png"/>" alt="Google plus" class="image_language"></li>
+                    </ul>
+                </div>
         </div><!-- /container -->
     </div>
 
@@ -114,5 +115,12 @@
 
     <div id="map-canvas"></div>
 </body>
-
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script src="<c:url value="/resources/lib/jquery/jquery-1.11.2.min.js" />"></script>
+<script src="<c:url value="/resources/lib/bootstrap-3.3.4-dist/js/bootstrap.min.js" />"></script>
+<script src="<c:url value="/resources/lib/jasny-bootstrap/js/jasny-bootstrap.min.js" />"></script>
+<script src="<c:url value="/resources/lib/markerclusterer/markerclusterer.js" />"></script>
+<script src="<c:url value="/resources/js/tab.js"/>"></script>
+<script src="<c:url value="/resources/js/lists.js"/>"></script>
+<script src="<c:url value="/resources/js/googlemap.js"/>"></script>
 </html>
