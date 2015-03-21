@@ -1,6 +1,6 @@
 package com.springapp.mvc.data.activity;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 /**
  * Created by Nicolas on 21/03/2015 at 09:32.

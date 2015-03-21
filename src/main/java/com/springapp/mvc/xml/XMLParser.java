@@ -39,8 +39,14 @@ public class XMLParser {
 
 
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
+        double lati = 49.9274427;
+        double longi = 5.3813976;
+        double ratio = 1./111.;
+        double halfSideKm = 10;
+        double halfSideCoord = halfSideKm * ratio;
+
         Filter filter = new Filter();
-        filter.addSuperCategoryFilter("3");
+        filter.addQuadriFilter(longi-halfSideCoord, lati-halfSideCoord, longi+halfSideCoord, lati+halfSideCoord);
         new ActivityDAO().filter(filter, AbstractDAO.LANG.EN);
        /* Scanner keyboard = new Scanner(System.in);
         System.out.print("path : c:/Users/Nathan/Desktop/hackathon.xml");

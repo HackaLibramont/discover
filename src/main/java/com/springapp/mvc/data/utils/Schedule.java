@@ -8,7 +8,7 @@ import java.sql.Timestamp;
  */
 public class Schedule implements Comparable<Object>, Serializable {
 
-    private final Long id;
+    private Long id;
     private final Timestamp start;
     private final Timestamp end;
 
@@ -99,6 +99,10 @@ public class Schedule implements Comparable<Object>, Serializable {
         return this.start + " - " + this.end;
     }
 
+    public void setId(Long newId)
+    {
+        this.id = newId;
+    }
 
     public Long getId() {
         return id;

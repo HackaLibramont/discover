@@ -54,7 +54,7 @@
                                 <input type="text" class="inputMenu" name="userMail">
                                 <p class="labels">Mot de passe</p>
                                 <input type="password" class="inputMenu" name="userPassword">
-                                <div class="menu-box">
+                                <div id="connexion">
                                     <a href="">
                                     <img src="<c:url value="/resources/img/start.png"/>" alt="Se connecter" class="submitButton">
                                     </a>
@@ -65,14 +65,23 @@
                             <div class="tab-pane textContent alentoursContent" id="c">
                                 <img src="<c:url value="/resources/img/position.png"/>" class="positionImage">
                                 <p class="labels">Départ</p>
+                                <input type="text" class="inputMenu" name="userLongitude" id="userLongitude">
+                                <input type="text" class="inputMenu" name="userLatitude" id="userLatitude">
+                                      <span>
+                                        <span class="hoursLetter">Distance : </span>
+                                        <input type="text" class="inputMenu inputHours" name="userDistance" id="userDistance" width="30px">
+                                        <img src="<c:url value="/resources/img/time.png"/>" class="hoursImage">
+                                    </span>
                                 <input type="text" class="inputMenu" name="userPosition">
                                 <p class="labels">Rayon</p>
                                 <input type="text" class="inputMenu" name="userPosition">
                                 <div class="menu-box">
 
                                 <a href="">
-                                    <img src="<c:url value="/resources/img/start.png"/>" alt="Voir les poins d'interêt" class="submitButton">
-                                </a></div>
+                                    <img src="<c:url value="/resources/img/start.png"/>" alt="Voir les poins d'interêt" class="submitButton" onclick="findActivitiesAround()">
+                                </a>
+                                    
+                            </div>
 
 
                             </div>
