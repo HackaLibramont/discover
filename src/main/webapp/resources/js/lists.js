@@ -33,8 +33,13 @@ function findActivitiesAround(e)
         dataType: "json",
         method: "POST",
         contentType: "application/json; charset=utf-8",
-        data : {latitude:lat, longitude:long, maxTravelDistance:dist}
+        data : JSON.stringify({
+            latitude:lat,
+            longitude:long,
+            maxTravelDistance:dist
+        })
     }).done(function( data ){
-            console.log( "Sample of data:", data.slice( 0, 100 ) );
+        //console.log( "Sample of data:", data.slice( 0, 100 ) );
+
     });
 }
