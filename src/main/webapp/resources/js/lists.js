@@ -29,11 +29,17 @@ function findActivitiesAround(e)
     var dist = $("#userDistance1").val()*1000;
 
     $.ajax({
-        url: "/entries",
+        url: "/activities",
         dataType: "json",
         method: "POST",
-        data : {latitude:lat, longitude:long, maxTravelDistance:dist}
+        contentType: "application/json; charset=utf-8",
+        data : JSON.stringify({
+            latitude:lat,
+            longitude:long,
+            maxTravelDistance:dist
+        })
     }).done(function( data ){
-            console.log( "Sample of data:", data.slice( 0, 100 ) );
+        //console.log( "Sample of data:", data.slice( 0, 100 ) );
+        proximityMap([lat,long], data);
     });
 }
