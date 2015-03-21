@@ -74,15 +74,15 @@
                                         <td style="text-align:center;">m</td>
                                     </tr>
                                     <tr>
-                                        <td title="Hébergement"><input type="checkbox" name="" value="1"/><img style='width:32px;' src="<c:url value="/resources/img/activities_hotel_blanc.png"/>"/></td>
-                                        <td title="Lieu"><input type="checkbox" name="" value="2"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_lieu_blanc.png"/>"/></td>
-                                        <td title="Loisir"><input type="checkbox" name="" value="3"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_loisir_blanc.png"/>"/></td>
-                                        <td title="Sport"><input type="checkbox" name="" value="4"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_sport_blanc.png"/>"/></td>
+                                        <td title="Hébergement"><input style='float:right; margin-right:12px;' type="checkbox" name="" value="1"/><img style='width:32px;' src="<c:url value="/resources/img/activities_hotel_blanc.png"/>"/></td>
+                                        <td title="Lieu"><input style='float:right; margin-right:12px;' type="checkbox" name="" value="2"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_lieu_blanc.png"/>"/></td>
+                                        <td title="Loisir"><input style='float:right; margin-right:12px;' type="checkbox" name="" value="3"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_loisir_blanc.png"/>"/></td>
+                                        <td title="Sport"><input style='float:right; margin-right:12px;' type="checkbox" name="" value="4"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_sport_blanc.png"/>"/></td>
                                     </tr>
                                     <tr>
-                                        <td title="Patrimoine"><input type="checkbox" name="" value="5"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_musee_blanc.png"/>"/></td>
-                                        <td title="Production"><input type="checkbox" name="" value="6"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_restaurant_blanc.png"/>"/></td>
-                                        <td title="Evénement"><input type="checkbox" name="" value="7"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_event_blanc.png"/>"/></td>
+                                        <td title="Patrimoine"><input style='float:right; margin-right:12px;' type="checkbox" name="" value="5"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_musee_blanc.png"/>"/></td>
+                                        <td title="Production"><input style='float:right; margin-right:12px;' type="checkbox" name="" value="6"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_restaurant_blanc.png"/>"/></td>
+                                        <td title="Evénement"><input style='float:right; margin-right:12px;' type="checkbox" name="" value="7"/><img  style='width:32px;' src="<c:url value="/resources/img/activities_event_blanc.png"/>"/></td>
                                         <td title="Trouver des activités" style="text-align:right;"><img style='width:32px; cursor:pointer;' src="<c:url value="/resources/img/activities_start.png"/>" alt="Voir les poins d'interêt" class="submitButton" onclick="findActivitiesAround(event)"></td>
                                     </tr>
                                 </table>
