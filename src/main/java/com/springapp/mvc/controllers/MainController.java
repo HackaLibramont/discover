@@ -11,9 +11,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Nathan on 20/03/2015.
- */
 @Controller
 @RequestMapping("/index")
 public class MainController {
@@ -21,13 +18,15 @@ public class MainController {
     @RequestMapping(method = RequestMethod.GET)
     public String index(ModelMap model)
     {
-        List<Activity> activities = new ArrayList<Activity>();
+       /* List<Activity> activities = new ArrayList<Activity>();
         Location loc = new Location(2., 3.);
         Contact contact = new Contact();
         activities.add(new Visit("Visite d'un truc", loc, contact));
         activities.add(new Visit("Visite d'un machin", loc, contact));
         activities.add(new Eating("Restaurant", loc, contact, new Timestamp(1891518874L), new Timestamp(1891528874L)));
         model.addAttribute("activities", activities);
+        return "index";*/
+
         return "index";
     }
 }
