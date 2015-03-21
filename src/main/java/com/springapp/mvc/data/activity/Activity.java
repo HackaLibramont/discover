@@ -64,6 +64,9 @@ public abstract class Activity
         return description;
     }
 
-
+    public long getLocationId()
+    {
+        return this.location.getId();
+    }
 
 }
