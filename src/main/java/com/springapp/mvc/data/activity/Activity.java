@@ -1,11 +1,12 @@
 package com.springapp.mvc.data.activity;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
  * Created by Nathan on 20/03/2015.
  */
-public abstract class Activity
+public abstract class Activity implements Serializable
 {
 
     private Long Id;

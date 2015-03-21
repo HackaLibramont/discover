@@ -1,9 +1,11 @@
 package com.springapp.mvc.data.activity;
 
+import java.io.Serializable;
+
 /**
  * Created by Nathan on 20/03/2015.
  */
-public class CategoryName {
+public class CategoryName implements Serializable {
 
     private final String id;
     private final Long foreignKey;

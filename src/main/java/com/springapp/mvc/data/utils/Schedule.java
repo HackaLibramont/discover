@@ -1,16 +1,18 @@
 package com.springapp.mvc.data.utils;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
  * Created by Nathan on 20/03/2015.
  */
-public class Schedule implements Comparable<Object> {
+public class Schedule implements Comparable<Object>, Serializable {
 
+    private final Long id;
     private final Timestamp start;
     private final Timestamp end;
 
-    public final static int BEFORE = -5;
+    public final static  int BEFORE = -5;
     public final static int JUST_BEFORE = -4;
     public final static int OVER_BEFORE = -3;
     public final static int INCLUDES_BEFORE = -2;
@@ -23,9 +25,14 @@ public class Schedule implements Comparable<Object> {
     public final static int AFTER = 5;
 
 
-    public Schedule(Timestamp start, Timestamp end) {
+    public Schedule(Long id, Timestamp start, Timestamp end) {
+        this.id = id;
         this.start = start;
         this.end = end;
+    }
+
+    public Schedule(Timestamp start, Timestamp end) {
+        this(null, start, end);
     }
 
     public Timestamp start() {
@@ -93,4 +100,7 @@ public class Schedule implements Comparable<Object> {
     }
 
 
+    public Long getId() {
+        return id;
+    }
 }

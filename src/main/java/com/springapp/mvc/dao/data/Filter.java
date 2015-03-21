@@ -99,7 +99,7 @@ public class Filter {
         line.addValue(value);
     }
 
-    private void addQuadriFilter(double minX, double minY, double maxX, double maxY)
+    public void addQuadriFilter(double minX, double minY, double maxX, double maxY)
     {
         QuadriFilterLine line = new QuadriFilterLine("act.latitude", "act.longitude", minX, minY, maxX, maxY);
             this.lines.put("geoloc", line);

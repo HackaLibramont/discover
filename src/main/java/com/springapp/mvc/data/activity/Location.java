@@ -1,9 +1,11 @@
 package com.springapp.mvc.data.activity;
 
+import java.io.Serializable;
+
 /**
  * Created by Nicolas on 20/03/2015 at 21:32.
  */
-public class Location
+public class Location implements Serializable
 {
     private Long id;
     private String name;

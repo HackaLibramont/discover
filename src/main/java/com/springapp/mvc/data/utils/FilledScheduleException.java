@@ -1,9 +1,11 @@
 package com.springapp.mvc.data.utils;
 
+import java.io.Serializable;
+
 /**
  * Created by Nathan on 20/03/2015.
  */
-public class FilledScheduleException extends RuntimeException {
+public class FilledScheduleException extends RuntimeException  implements Serializable {
 
     private final Schedule what;
     private final Schedule overs;

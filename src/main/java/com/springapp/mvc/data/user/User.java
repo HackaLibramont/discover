@@ -1,5 +1,6 @@
 package com.springapp.mvc.data.user;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**

@@ -1,6 +1,8 @@
 package com.springapp.mvc.data.activity;
 
-public class Contact
+import java.io.Serializable;
+
+public class Contact implements Serializable
 {
     private long id;
     private String firstName;
