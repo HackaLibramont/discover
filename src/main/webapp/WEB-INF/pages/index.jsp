@@ -74,15 +74,15 @@
                                         <td style="text-align:center;">m</td>
                                     </tr>
                                     <tr>
-                                        <td title="Hébergement"><input type="checkbox" id='filter1' name="" value="1"/><label for="filter1"><img style='width:32px;' src="<c:url value="/resources/img/activities_hotel_blanc.png"/>"/></label></td>
-                                        <td title="Lieu"><input type="checkbox" name="" id='filter2' value="2"/><label for="filter2"><img  style='width:32px;' src="<c:url value="/resources/img/activities_lieu_blanc.png"/>"/></label></td>
-                                        <td title="Loisir"><input type="checkbox" name="" id='filter3' value="3"/><label for="filter3"><img  style='width:32px;' src="<c:url value="/resources/img/activities_loisir_blanc.png"/>"/></label></td>
-                                        <td title="Sport"><input type="checkbox" name="" id='filter4' value="4"/><label for="filter4"><img  style='width:32px;' src="<c:url value="/resources/img/activities_sport_blanc.png"/>"/></label></td>
+                                        <td title="Hébergement"><input type="checkbox" id='filter1' name="filter" value="1"/><label for="filter1"><img style='width:32px;' src="<c:url value="/resources/img/activities_hotel_blanc.png"/>"/></label></td>
+                                        <td title="Lieu"><input type="checkbox" name="filter" id='filter2' value="2"/><label for="filter2"><img  style='width:32px;' src="<c:url value="/resources/img/activities_lieu_blanc.png"/>"/></label></td>
+                                        <td title="Loisir"><input type="checkbox" name="filter" id='filter3' value="3"/><label for="filter3"><img  style='width:32px;' src="<c:url value="/resources/img/activities_loisir_blanc.png"/>"/></label></td>
+                                        <td title="Sport"><input type="checkbox" name="filter" id='filter4' value="4"/><label for="filter4"><img  style='width:32px;' src="<c:url value="/resources/img/activities_sport_blanc.png"/>"/></label></td>
                                     </tr>
                                     <tr>
-                                        <td title="Patrimoine"><input type="checkbox" name="" id='filter5' value="5"/><label for="filter5"><img  style='width:32px;' src="<c:url value="/resources/img/activities_musee_blanc.png"/>"/></label></td>
-                                        <td title="Production"><input type="checkbox" name="" id='filter6' value="6"/><label for="filter6"><img  style='width:32px;' src="<c:url value="/resources/img/activities_restaurant_blanc.png"/>"/></label></td>
-                                        <td title="Evénement"><input type="checkbox" name="" id='filter7' value="7"/><label for="filter7"><img  style='width:32px;' src="<c:url value="/resources/img/activities_event_blanc.png"/>"/></label></td>
+                                        <td title="Patrimoine"><input type="checkbox" name="filter" id='filter5' value="5"/><label for="filter5"><img  style='width:32px;' src="<c:url value="/resources/img/activities_musee_blanc.png"/>"/></label></td>
+                                        <td title="Production"><input type="checkbox" name="filter" id='filter6' value="6"/><label for="filter6"><img  style='width:32px;' src="<c:url value="/resources/img/activities_restaurant_blanc.png"/>"/></label></td>
+                                        <td title="Evénement"><input type="checkbox" name="filter" id='filter7' value="7"/><label for="filter7"><img  style='width:32px;' src="<c:url value="/resources/img/activities_event_blanc.png"/>"/></label></td>
                                         <td title="Trouver des activités" style="text-align:right;"><img style='width:32px; cursor:pointer;' src="<c:url value="/resources/img/activities_start.png"/>" alt="Voir les poins d'interêt" class="submitButton" onclick="findActivitiesAround(event)"></td>
                                     </tr>
                                 </table>

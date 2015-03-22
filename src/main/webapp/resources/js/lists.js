@@ -21,10 +21,11 @@ function setCursorPosition(latitude, longitude){
 function findActivitiesAround(e)
 {
     e.preventDefault();
-    var checks = null;
-    $('#checkboxes input:checked').each(function() {
+    var checks = [];
+    $('input[name="filter"]').each(function() {
         console.log($(this));
-        checks.push($(this).val());
+        if($(this).is(':checked'))
+            checks.push($(this).val());
     });
     var lat = $("#userLatitude1").val();
     var long = $("#userLongitude1").val();

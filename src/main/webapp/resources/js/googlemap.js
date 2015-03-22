@@ -74,7 +74,8 @@ function proximityMap(actualLocalisation,tabLocations)
 {
     var eltBound = 0;
     var actualLoc = new google.maps.LatLng(actualLocalisation[0],actualLocalisation[1]);
-
+    markers = [];
+    ;
     // current position marker
     var CurrentPositionMarker = new google.maps.Marker({
         icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
@@ -103,7 +104,8 @@ function proximityMap(actualLocalisation,tabLocations)
         markers.push(createMarker(tabLatLng[i],tabLocations[i]));
     }
 
-    var markerCluster = new MarkerClusterer(map, markers);
+    var mcOptions = { maxZoom: 15};
+    var markerCluster = new MarkerClusterer(map, markers,mcOptions);
     // if elt = 1 then, only current position so no bounding on the map
     if(eltBound > 1)
         map.fitBounds(bounds);
